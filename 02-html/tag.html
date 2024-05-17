@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tag 종류</title>
+</head>
+<body>
+    <h1>Tag 종류에 대해 배워보자</h1>
+    <h2>두번째로 큰 제목</h2>
+    <h3>세번째로 큰 제목</h3>
+    <h4>네번째로 큰 제목</h4>
+    <h5>다섯번째로 큰 제목</h5>
+    <h6>여섯번째로 큰 제목</h6>
+    <!-- h7태그는 존재하지 않는 태그 -->
+    <!-- <h7>제목??</h7> -->
+
+    <p>여기는 본문 영역입니다. 어쩌구 저쩌구~~~~~</p>
+    <br>
+    <br>
+    <br>
+    <p>여기는 본문 영역입니다. 어쩌구 저쩌구~~~~~</p>
+    <!-- shift + alt + 화살표 : 복사 -->
+
+    <h3>오늘의 할일</h3>
+    <!-- ul tag type attribute : disc(default), square, circle, none -->
+    <ul type="square">
+        <li>HTML 복습하기</li>
+        <li>운동하기</li>
+        <li>Git 명령어 연습하기</li>
+    </ul>
+
+    <h3>아이스 카페라떼 레시피</h3>
+    <!-- ol tag type attribute : 1(default), a, A, i, I -->
+    <!-- start attr : 시작 번호, reversed : 역순으로 -->
+    <ol type="1" start="4" reversed>
+        <li><strong>우유</strong>를 <em>180ml</em> 컵에 넣어주세요</li>
+        <li><b>얼음</b>을 컵에 가득 넣어주세요</li>
+        <li><i>에스프레소</i> 샷을 넣어주면</li>
+        <li><u>완성!</u> <del>맛있게 드세요!</del></li>
+    </ol>
+    <!-- 수평줄 태그 -->
+    <hr>
+
+    <!-- 목록 태그의 중첩 사용 -->
+    <h3>내가 좋아하는 음식</h3>
+    <ul>
+        <li>
+            양식
+            <ul>
+                <li>스파게티</li>
+                <li>스테이크</li>
+            </ul>
+        </li>
+        <li>
+            한식
+            <ul>
+                <li>김치찌개</li>
+                <li>국밥</li>
+            </ul>
+        </li>
+        <li>
+            일식
+            <ul>
+                <li>사시미</li>
+                <li>라멘</li>
+            </ul>
+        </li>
+    </ul>
+
+    <hr>
+
+    <h2>img 태그</h2>
+    <!-- 
+        상대 경로 : 현재 위치를 기준으로 하는 상대적인 경로 
+        - 프로젝트의 위치가 바뀌어도 그대로 사용할 수 있다는 장점
+        - 목적 파일(sesac.png)의 위치가 바뀐다면 상대경로를 수정해야하는 단점
+        ex) ./src/img/img.png, ../../img/img.png
+    -->
+    <img src="./image/sesac.png" alt="새싹" width="400" height="200">
+    <img src="image/sesac.png" alt="새싹" width="400" height="200">
+    
+    <br>
+    <!-- 
+        절대 경로 : root(맨 처음, 최상단)부터 해당 파일까지의 경로 
+        - 내 로컬 환경에서는 어느 곳에서든 접근 가능하다는 것이 장점
+        - 다른 로컬에서는 접근이 절대 경로가 실제로 동일해야만 접근이 가능하다는 것이 단점
+        ex) https://www.naver.com, c:/Users/...
+    -->
+    <img src="/Users/sba/Documents/github/sesac-ydp-6/02-html/image/sesac.png" alt="새싹">
+
+    <br>
+    <!-- 인터넷 이미지 주소로 지정 -->
+    <img src="https://cdn.imweb.me/thumbnail/20230303/b8ea3e5c047ac.jpg" alt="Apple" width="200">
+
+
+    <hr>
+    <!-- 
+        a tag target attribute : 링크가 열릴 위치 지정 
+        - _self (default) : 현재 탭에서 열기
+        - _blank : 새 탭으로 열기
+    -->
+    <a href="http://naver.com">네이버 바로가기</a>
+    <a href="http://naver.com" target="_blank">네이버 바로가기</a>
+    <a href="http://naver.com" target="_blank" title="마우스롤 올리면 나타나는 제목!">네이버 바로가기</a>
+
+    <!-- a 태그의 href 속성 값으로는 인터넷 상의 주소 뿐만 아니라 프로젝트 폴더 내의 다른 HTML 문서의 주소를 넣어도 됨 -->
+    <a href="./html-start.html">HTML 시작하기 공부내용 보기</a>
+</body>
+</html>
