@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Table Tag</title>
+</head>
+<body>
+    <h1>테이블 태그를 배워보자!</h1>
+
+    <table border="1" width="150" height="150" bgcolor="skyblue">
+        <caption>My First Table</caption>
+        <tr>
+            <td>1</td>
+            <td>2</td>
+            <td>3</td>
+        </tr>
+        <tr>
+            <td>4</td>
+            <td>5</td>
+            <td>6</td>
+        </tr>
+        <tr>
+            <td>7</td>
+            <td>8</td>
+            <td>9</td>
+        </tr>
+    </table>
+
+    <!-- cellspacing, cellpadding 
+        - cellspacing : border 사이의 간격
+        - cellpadding : cell(td 요소)의 내부 간격(여백)
+    -->
+    <table border="1" cellpadding="15" cellspacing="10" align="center">
+        <caption>메뉴판</caption>
+        <tr>
+            <!-- th 태그 : 테이블의 제목 칸을 의미 (bold 체) -->
+            <th>메뉴</th>
+            <th>가격</th>
+            <th>비고</th>
+        </tr>
+        <tr>
+            <td>국물떡볶이</td>
+            <td>5000</td>
+            <td>2인 이상 주문 가능</td>
+        </tr>
+        <tr>
+            <td>참치김밥</td>
+            <td>4000</td>
+            <td>x</td>
+        </tr>
+        <tr>
+            <td>치즈김밥</td>
+            <td>4000</td>
+            <td>치즈 추가 500원</td>
+        </tr>
+    </table>
+
+    <table border="1" cellspacing="0">
+        <caption>NEW 메뉴판</caption>
+        <tr>
+            <!-- th 태그 : 테이블의 제목 칸을 의미 (bold 체) -->
+            <th>메뉴</th>
+            <th>가격</th>
+            <th>비고</th>
+        </tr>
+        <tr>
+            <td>국물떡볶이</td>
+            <td>5000</td>
+            <td>2인 이상 주문 가능</td>
+        </tr>
+        <tr>
+            <td>참치김밥</td>
+            <!-- rowspan : 해당 칸이 점유하는 행의 수 지정 => 2개의 row를 합치겠습니다! -->
+            <td rowspan="2">4000</td>
+            <td>x</td>
+        </tr>
+        <tr>
+            <td>치즈김밥</td>
+            <!-- <td>4000</td> -->
+            <td>치즈 추가 500원</td>
+        </tr>
+        <tr>
+            <!-- colspan : 해당 칸이 점유하는 열의 수 지정 => 3개의 column를 합치겠습니다! -->
+            <td colspan="3">순대 (품절)</td>
+        </tr>
+    </table>
+</body>
+</html>
