@@ -1,0 +1,24 @@
+div{
+    background-color: navy;
+    color: white;
+}
+
+.stripes>*:nth-child(2){
+    background-color: yellow;
+    color: black;
+}
+
+.stripes>*:nth-child(6){
+    background-color: yellow;
+    color: black;
+}
+
+.stripes>*:nth-child(11){
+    background-color: yellow;
+    color: black;
+}
+
+
+
+
+
