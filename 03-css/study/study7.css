@@ -1,0 +1,25 @@
+h3:hover{
+    background-color: yellowgreen;
+    color: white;
+}
+
+textarea:focus{
+    background-color: pink;
+}
+
+input:checked + label[for="red"]{
+    background-color: red;
+}
+
+input:checked + label[for="blue"]{
+    background-color: blue;
+}
+
+input:checked + label[for="yellow"]{
+    background-color: yellow;
+}
+
+button:active{
+    color: red;
+    background-color: blanchedalmond;
+}

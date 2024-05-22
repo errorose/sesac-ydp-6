@@ -72,3 +72,31 @@ input:focus{
     background-color: pink;
 }
 
+
+/* 가상요소 : before, after */
+/* 
+    - HTML 문서의 특정 부분을 스타일링하기 위해 사용.
+    - 실제로 HTML 문서에 존재하지 않는 부분이지만 CSS를 통해 스타일 적용이 가능.
+
+    Q) 가상클래스 : & 가상요소 :: 차이?
+    A) CSS 사양이 발전하면서 가상클래스와 가상 요소를 명확하게 구분할 필요성이 생김.
+    가상 클래스 - 문서의 기존 요소 상태를 나타냄.
+    가상 요소 - 문서의 특정 부분을 생성하여 스타일링함.
+    그렇기에 구분하기 위해서 :: 로 표기하는 새로운 표기법을 도입.
+*/
+
+.box::before{
+    content: "택시~ ";
+    color: red;
+}
+
+.box::after{
+    content: " 빨리";
+    color: blue !important;
+}
+
+.box::after{
+    content: " 빨리";
+    color: green;
+}
+
