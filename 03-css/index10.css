@@ -1,0 +1,35 @@
+.d-inline1{
+    display: inline;
+    background-color: lightblue;
+}
+
+.d-inline2{
+    display: inline;
+    background-color: lightcoral;
+    /* width: 300px; -> 적용 불가능 */
+}
+
+.d-block1{
+    display: block;
+    background-color: lightblue;
+    /* width: 300px; -> 적용 가능 */
+}
+
+.d-block2{
+    display: block;
+    background-color: lightcoral;
+}
+
+.d-inline-block1{
+    display: inline-block;
+    background-color: blue;
+}
+
+.d-inline-block2{
+    display: inline-block;
+    background-color: red;
+    width: 200px;
+    height: 300px;
+    margin: 20px 40px;
+}
+

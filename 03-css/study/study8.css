@@ -1,0 +1,36 @@
+.div1{
+    width: 200px;
+    height: 200px;
+    border-left: 15px solid black;
+    border-top: 1px solid black;
+    border-right: 5px solid black;
+    border-bottom: 10px solid black;
+    /* border-style: dashed solid double groove; */
+}
+
+.div2{
+    width: 200px;
+    height: 200px;
+    border-left: 10px groove black;
+    border-top: 10px solid black;
+    border-right: 10px dotted black;
+    border-bottom: 10px double black;
+}
+
+.div3{
+    width: 200px;
+    height: 200px;
+    border-left: 10px solid blue;
+    border-top: 10px solid black;
+    border-right: 10px solid red;
+    border-bottom: 10px solid green;
+}
+
+.div4{
+    width: 200px;
+    height: 200px;
+    border-left: 20px dotted purple;
+    border-top: 5px solid red;
+    border-right: 10px double blue;
+    border-bottom: 20px dashed skyblue;
+}

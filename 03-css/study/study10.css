@@ -1,0 +1,33 @@
+.container{
+    width: 500px;
+    height: 500px;
+    background-color: pink;
+    position: relative;
+}
+
+.Item1{
+    position: relative;
+    left: 50px;
+    top: 30px;
+    background-color: red;
+    width: 100px;
+    height: 100px;
+}
+
+.Item2{
+    position: absolute;
+    right: 30px;
+    bottom: 100px;
+    background-color: orange;
+    width: 100px;
+    height: 100px;
+}
+
+.Item3{
+    position: fixed;
+    right: 100px;
+    top: 100px;
+    background-color: yellow;
+    width: 100px;
+    height: 100px;
+}

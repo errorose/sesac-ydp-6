@@ -1,0 +1,19 @@
+.background{
+    width: 200px;
+    height: 200px;
+    border-radius: 50%;
+    background:linear-gradient(20deg, royalblue, pink);
+    
+}
+
+.backgroundImg{
+    width: 180px;
+    height: 180px;
+    background-image: url("/03-css/image/crm.svg");
+    background-position: center;
+    background-size: contain;
+    background-repeat: no-repeat;
+    border: 5px solid white;
+    border-radius: 50%;
+    
+}
