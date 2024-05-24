@@ -3,17 +3,15 @@ div{
     height: 100px;
     background-color: black;
     color: white;
-    overflow: auto;
-    transition-delay: 0.5s;
-    transition-duration: 1s;
-
-    /* transition: 1s 0.5s; */
-    
+    overflow: scroll;   
 }
 
 div:hover{
     width: 300px;
     height: 300px;
-    
+    transition: 1s, 0.5s;
+
+    /* transition-duration: 1s; */
+    /* transition-delay: 0.5s; */
 }
 

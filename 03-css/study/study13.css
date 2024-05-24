@@ -1,6 +1,60 @@
-img-area{
+.background{
     background-color: lightgray;
+    height: 600px;
+    position: relative;
 }
+
+.a{
+    width: 400px;
+    height: 200px;
+}
+
+.div1{
+    background-image: url("/03-css/image/blue.jpeg");
+    position: absolute;
+    left: 200px;
+    top: 200px;
+    transform: skewY(20deg);
+    z-index: 3;
+}
+
+.div2{
+    background-image: url("/03-css/image/blue2.jpeg");
+    position: absolute;
+    left: 400px;
+    top: 200px;
+    transform: skewY(20deg);
+    z-index: 2;
+}
+
+.div3{
+    background-image: url("/03-css/image/blue3.jpeg");
+    position: absolute;
+    left: 600px;
+    top: 200px;
+    transform: skewY(20deg);
+    z-index: 1;
+}
+
+.div1:hover{
+    transform: skewY(0);
+    transition: 1s;
+    z-index: 6;
+}
+
+.div2:hover{
+    transform: skewY(0);
+    transition: 1s;
+    z-index: 5;
+}
+
+.div3:hover{
+    transform: skewY(0);
+    transition: 1s;
+    z-index: 4;
+}
+
+
 
 
 
