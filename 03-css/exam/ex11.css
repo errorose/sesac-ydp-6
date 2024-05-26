@@ -2,7 +2,6 @@
     position: relative;
     width: 500px;
     height: 500px;
-    
 }
 
 div{
@@ -13,51 +12,68 @@ div{
 
 .eyes{
     background-color: white;
+    position: absolute;
     width: 50px;
     height: 50px;
     left: 40px;
-    border: 1px solid black;
+    top: 210px;
+    left: 60px;
+}
+
+.eyes2{
+    background-color: black;
+    position: absolute;
+    width: 30px;
+    height: 30px;
+    top: 220px;
+    left: 60px;
 }
 
 .one{
     background-color: red;
-    position: relative;
+    position: absolute;
     left: 50px;
     top : 200px
 }
 
 .two{
     background-color: orange;
-    position: relative;
+    position: absolute;
     left: 90px;
-    top: 170px;
+    top: 250px;
 }
 
 .three{
     background-color: yellow;
-    position: relative;
+    position: absolute;
     left: 130px;
-    top: 140px;
+    top: 300px;
 }
 
 .four{
     background-color: green;
-    position: relative;
+    position: absolute;
     left: 120px;
-    top: 110px;
+    top: 350px;
+    z-index: 2;
 }
 
 .five{
     background-color: blue;
-    position: relative;
+    position: absolute;
     left: 170px;
-    top: 80px;
+    top: 400px;
+    z-index: 3;
 }
 
 .img{
-    border-radius: 0;
-    background-image: url("/03-css/image/green.png");
-    width: 600px;
+    position: absolute;
+    background-image: url("https://cdn.imweb.me/thumbnail/20210613/ec4fd12d92fbb.jpg");
+    width: 400px;
     height: 100px;
     background-position: center;
+    left: 10px;
+    top: 400px;
+    border-radius: 0;
+    z-index: 1;
 }
