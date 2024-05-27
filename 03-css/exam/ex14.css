@@ -1,0 +1,28 @@
+div{
+    width: 100px;
+    height: 100px;
+    background-color: skyblue;
+    border: 1px solid black;
+}
+
+.div1:hover{
+    width: 200px;
+    transition: width 2s 0.5s;
+}
+
+.div2:hover{
+    transform: skewX(-45deg);
+    transition: 1s 0.5s;
+}
+
+.div3:hover{
+    transform: translateX(300px);
+    transition: 2s;
+}
+
+.div4:hover{
+    background-color: yellow;
+    transform: scale(2);
+    transform: rotate(10deg 10deg 10deg);
+    transition: 2s 0.5s;
+}

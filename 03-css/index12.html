@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>요소를 숨기는 3가지 속성</title>
+    <link rel="stylesheet" href="/03-css/index12.css">
+</head>
+<body>
+    <h1>CSS속성 3형제</h1>
+    <hr>
+    <!-- alt + 커서 클릭 : 전체 선택 해서 한번에 쓸 수 있음 -->
+    <div class="square">origin</div>
+    <div class="square d-none">d-none</div>
+    <div class="square invisible">invisible</div>
+    <div class="square opacity-0">opacity</div>
+    <div class="square">origin</div>
+    <hr>
+
+    <h2>display : none</h2>
+    <ul>
+        <li>요소를 화면에 표시하지 않음.</li>
+        <li>요소가 차지하는 공간도 사라진다.</li>
+        <li>그냥 없애 버리는 방법!</li>
+    </ul>
+    <hr>
+
+    <h2>visibility: hidden</h2>
+    <ul>
+        <li>요소만 사라지고 차지하던 공간은 그대로 남는다.</li>
+        <li>모습과 속성을 숨긴다.</li>
+    </ul>
+    <hr>
+
+    <h2>opacity:0</h2>
+    <ul>
+        <li>요소 투명도</li>
+        <li>요소만 사라지고 차지하던 공간은 그대로 남는다.</li>
+        <li>모습만 숨기고 속성은 남는다. (ex. 클릭, 호버, 포커스 등 이벤트 가능)</li>
+        <li>투명도 0 ~ 1 사이 조절 가능.</li>
+    </ul>
+</body>
+</html>

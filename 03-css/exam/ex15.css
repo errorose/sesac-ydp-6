@@ -1,0 +1,44 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+.circle{
+    width: 100px;
+    height: 100px;
+    background-color: pink;
+    border-radius: 50%;
+
+    animation-name: ball;
+    animation-duration: 8s;
+    animation-iteration-count: infinite;
+}
+
+@keyframes ball {
+    0%{
+        transform: translate(0px);
+    }
+    25%{
+        transform: translate(calc(100vw - 100px), 0px);
+    }
+    50%{
+        transform: translate(calc(100vw - 100px), calc(100vh - 100px)); 
+        /* transform: translate(calc(x), calc(y);  */
+    }
+    75%{
+        transform: translate(0, calc(100vh - 100px));
+    }
+    100%{
+        transform: translate(0,0);
+    }
+    
+}
+
+/* vw, vh : viewPort 단위 */
+
+.div1{
+    width: 50vw;
+    height: calc();
+    background-color: red;
+}
+

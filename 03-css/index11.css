@@ -1,0 +1,164 @@
+.container {
+    width: 300px;
+    height: 500px;
+    background-color: #333;
+    margin: 0 auto;
+
+    display: flex;
+
+    /* 부모 요소에 "flex"를 선언하면, 아이템(자식)이 가로 방향으로 배치 */
+
+    /* 
+        FlexBox 기본 용어 
+        * 주축 (Main Axis)
+        - Flex 컨테이너 내에서 Flex 아이템들이 배치되는 기본 방향을 나타내는 축.
+
+        * 교차축 (Cross Axis)
+        - 주축에 수직인 축.
+    */
+
+    /* 
+        flex-direction : flex 방향을 설정 (주축 방향 설정)
+        - row (default) : 수평 정렬 (좌 -> 우)
+        - row-reverse : 수평 정렬 (우 -> 좌)
+        - column : 수직 정렬 (위 -> 아래)
+        - column-reverse : 수직 정렬 (아래 -> 위)
+    */
+
+    /* row 일 때 */
+    /* flex-direction: row; */
+    /* flex-direction: row-reverse; */
+
+    /* column 일 때 */
+    /* flex-direction: column; */
+    /* flex-direction: column-reverse; */
+
+    /* 
+        justify-content : 주축을 따라 아이템을 어떻게 배칠할 것인지?
+        - flex-direction이 수평 정렬; 주축 = row (가로)
+        - flex-direction이 수직 정렬; 주축 = column(세로)
+
+        - flex-start (default): 아이템을 주축에 대해서 start지점을 기준으로 나열
+        - flex-end : 아이템을 주축에 대해서 end 지점을 기준으로 나열
+        - space-between : 처음과 마지막 아이템을 양 끝에 붙이고 나머지 영역을 공평하게 나눔.
+        - space-around : 아이템들의 모든 여백을 공평하게 갖도록 함 (양끝 영역의 단위가 1이라면, 나머지 영역의 단위는 2)
+        - space-evenly : start부터 첫 아이템의 간격, 아이템 끼리의 간격, 마지막 아에팀 부터 end 까지의 모든 간격이 일정
+
+    */
+    /* justify-content: flex-start; */
+    /* justify-content: flex-end; */
+    /* justify-content: space-between; */
+    /* justify-content: space-around; */
+    /* justify-content: space-evenly; */
+
+    /* 
+        align-items: 교차축에 대해서 아이템을 어떻게 배치할 것인지?
+        - flex-direction이 수평 정렬; 교차축 = column (세로)
+        - flex-direction이 수직 정렬; 교차축 = row (가로)
+
+        - stretch (default) : container의 교차축을 채우기 위해 늘림.
+            
+        - flex-start : 교차축에 대하여 시작점으로 정렬.
+        - flex-end : 교차축에 대하여 끝점으로 정렬.
+        - center : 교차축에 대하여 가운데 정렬
+        - baseline : 아이템을 텍스트의 베이스라인을 기준 정렬.
+    */
+
+    /* align-items: stretch; */
+    /* align-items: flex-start; */
+    /* align-items: flex-end; */
+    /* align-items: center; */
+    /* align-items: baseline; */
+
+    /* 
+        flex-wrap : 줄바꿈 (개행) 처리
+        -> 컨테이너(부모)가 한 줄에 아이템을 다 수용하지 못할 때, 줄바꿈 관련 설정
+        - nowrap (default) : 줄바꿈 안함.
+        - wrap : 줄바꿈 함.
+        - wrap-reverse : 줄바꿈 하는데 아이템을 역순 배치.
+    */
+
+    /* flex-wrap: nowrap; */
+    flex-wrap: wrap;
+    /* flex-wrap: wrap-reverse; */
+
+    /* 
+        align-content : 여러 행에 대한 정렬.
+        (조건) flex-wrap: wrap / wrpa-reverse 상태에서 아이템이 두 줄 이상일 때 수직축 방향 설정함.
+    */
+
+    /* align-content: stretch; */
+    /* align-content: flex-start; */
+    /* align-content: flex-end; */
+    /* align-content: center; */
+    /* align-content: space-between; */
+    /* align-content: space-around; */
+    /* align-content: space-evenly; */
+}
+
+.items {
+    width: 100px;
+    height: 100px;
+    font-weight: 700;
+    text-align: center;
+    line-height: 100px;
+
+}
+
+.item1 {
+    background-color: red;
+    font-size: 10px;
+}
+
+.item2 {
+    background-color: orange;
+    font-size: 15px;
+}
+
+.item3 {
+    background-color: yellow;
+    font-size: 20px;
+}
+
+.item4 {
+    background-color: green;
+    font-size: 25px;
+}
+
+.item5 {
+    background-color: blue;
+    font-size: 30px;
+}
+
+/* 실습 */
+.div1{
+    width: 300px;
+    height: 300px;
+    background-color: aqua;
+    position: relative;
+}
+
+.div1>div{
+    width: 100px;
+    height: 100px;
+    background-color: pink;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.div2{
+    width: 300px;
+    height: 300px;
+    background-color: aqua;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.div2>div{
+    width: 100px;
+    height: 100px;
+    background-color: pink;
+}
