@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        /**
+         * age 변수 선언, prompt로 입력 받기
+         * age 기준 출력값
+         *  - age가 20 이상 : 성인
+         *  - age가 17 이상 : 고등학생
+         *  - age가 14 이상 : 중학생
+         *  - age가 8 이상 : 초등학생
+         *  - age가 0 이상 : 유아
+         * */
+
+         let age = prompt("나이를 입력해 주세요.");
+
+         if (age >= 20) {
+            console.log("성인입니다.");
+         }else if(age >= 17){
+            console.log("고등학생입니다.");
+         }else if(age >= 14){
+            console.log("중학생입니다.");
+         }else if(age >= 8){
+            console.log("초등학생입니다.");
+         }else{
+            console.log("유아입니다. 응애!");
+         }
+
+         // 3항 연산자
+         let userName = "yeseul";
+
+         userName == "yeseul" ? console.log("참!") : console.log("거짓!");
+
+         // 지금이 오전인지 오후인지 콘솔창에 출력하기
+         // (0 ~ 23 까지의 숫자 반환 / 0이 자정, 12가 정오)
+         let now = new Date().getHours();
+
+         now > 0 && now < 12 ? console.log("지금은 오전입니다!") : console.log("지금은 오후입니다!"); 
+         console.log(now);
+
+    </script>
+</body>
+</html>

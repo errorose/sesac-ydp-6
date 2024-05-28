@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        for(let i = 0; i < 10; i++){
+            console.log("인사를", i+1, "번째 드립니다!");
+        }
+
+        /**
+         * 콘솔창에 조건에 맞는 숫자 출력하기
+         *  - 1000까지의 숫자 중
+         *  - 13의 배수이면서 홀수인 숫자
+         * */
+
+         for(let num = 1; num < 1000; num++){
+            if(num % 13 == 0 && num % 2 == 1){
+                console.log(num);
+            }
+         }
+
+         let w = 0;
+         while(w < 10){
+            console.log("while문", w+1, "이에용");
+            w++;
+         }
+
+        let w2 = 0;
+        while (true) {
+            console.log("인사를 ", w2 + 1, "번째 드립니다!");
+            w2++;
+            if (w2 == 10) {
+                break;
+            }
+        }
+
+        /**
+         * 콘솔창에 구구단 출력하기
+         * 2단부터 9단까지
+         * */
+
+        let a = 2, b = 1;
+        while (a < 10) {
+        while (b < 10) {
+            console.log(`${a} x ${b} = ${a * b}`);
+            b++;
+        }
+            a++;
+            b = 1;
+        }
+        
+    </script>
+</body>
+</html>
