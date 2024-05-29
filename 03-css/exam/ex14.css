@@ -16,13 +16,14 @@ div{
 }
 
 .div3:hover{
-    transform: translateX(300px);
+    transform: translateX(400px) rotate(360deg);
     transition: 2s;
+    border-radius: 50%;
+    background-color: red;
 }
 
 .div4:hover{
     background-color: yellow;
-    transform: scale(2);
-    transform: rotate(10deg 10deg 10deg);
+    transform: scale(2) rotateY(360deg);
     transition: 2s 0.5s;
 }
