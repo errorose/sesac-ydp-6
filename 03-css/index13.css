@@ -20,7 +20,7 @@
     background-color: cyan;
     position: relative;
 
-    animation-name: damon;
+    animation-name: yeseul;
     animation-duration: 2s;
     animation-delay: 1s;
     animation-iteration-count: infinite;
@@ -28,7 +28,7 @@
 }
 
 /* damon : 애니메이션의 이름 (개발자 맘대로 짓기) */
-@keyframes damon {
+@keyframes yeseul {
     0% {
         left: 0px;
     }
