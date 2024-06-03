@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CSS 단위</title>
+    <link rel="stylesheet" href="./unit.css">
+</head>
+<body>
+    <h1>px</h1>
+    <div class="box px"></div>
+
+    <h1>%</h1>
+    <div class="box pct-parent">
+        <div class="pct-child"></div>
+    </div>
+
+    <h1>em</h1>
+    <!-- 1em = 20px -->
+    <div class="box">
+        가가
+        <!-- 2em = 2 * 20px = 40px -->
+        <span class="em">
+            나나
+            <!-- 2em = 2 * 40px = 80px -->
+            <span class="em">다다</span>
+        </span>
+    </div>
+
+    <hr>
+    <h2>em 주의사항</h2>
+    <div class="box">
+        <div class="case1">
+            여기는 20px
+            <span class="em-3">여기는 3em 이므로</span>
+            <!-- 3em = 3 * 20px = 60px -->
+        </div>
+        <div class="case2">
+            여기는 10px
+            <span class="em-3">여기는 3em 이므로</span>
+            <!-- 3em = 3 * 10px = 30px -->
+        </div>
+    </div>
+
+    <hr>
+    <h1>rem</h1>
+    <!-- 1rem = 20px -->
+    <div class="box">
+        가가
+        <!-- 2rem = 2 * 20px = 40px -->
+        <span class="rem">
+            나나
+            <!-- 2rem = 2 * 20px = 40px -->
+            <span class="rem">다다</span>
+        </span>
+    </div>
+
+    <hr>
+    <h1>vw</h1>
+    <div class="box vw"></div>
+
+    <hr>
+    <h1>vh</h1>
+    <div class="box vh"></div>
+
+    <hr>
+    <button class="btn success">Success</button>
+    <button class="btn error">Error</button>
+</body>
+</html>
