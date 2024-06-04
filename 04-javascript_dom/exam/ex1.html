@@ -4,12 +4,22 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
-    <script defer src="/04-javascript_dom/exam/ex1.js"></script>
 </head>
 <body>
     <div>민트 초코는 <span>맛있다 >_<</span></div>
-    <br>
-    <hr>
 
+    <script>
+    // 요소 선택 및 다루기 실습
+    /**
+     *  Q) HTML 내용 변경해보기
+     *  1) span 요소를 선택하여 해당 요소의 내용을 '맛있다'에서 '맛없다'로 변경
+     *  2) span 태그의 글씨 색상과 폰트 굵기 변경하기 
+     *  3) html 코드 변경 없이 js 코드로만 변경하기 
+     */
+    const span = document.querySelector('span');
+    span.innerText = '맛없다 ㅡㅡ;;';
+    span.style.color = 'red';
+    span.style.fontWeight = 'bold';
+    </script>
 </body>
 </html>
