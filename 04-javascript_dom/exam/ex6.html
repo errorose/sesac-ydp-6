@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>랜덤 색상 생성기</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@100;300;400;500;700;900&family=Noto+Sans+Mono:wght@100;200;300;400;500;600;700;800;900&display=swap"
+      rel="stylesheet"
+    />
+
+    <style>
+      body {
+        width: 100%;
+        height: 100vh;
+        overflow: hidden;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      }
+
+      .container {
+        text-align: center;
+      }
+
+      button {
+        cursor: pointer;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <h1>👨🏻‍🎨 Create Random Color 🌈</h1>
+      <h2>rgb(255, 255, 255)</h2>
+      <button>Create</button>
+    </div>
+    <script>
+      // TODO: 아래 조건을 만족하도록 js 파일을 수정하기
+      // 문제
+      // - [ ] 버튼을 클릭하면 배경 색상이 변경됩니다.
+      //    - 문서 전체의 색상을 변경하려면 어떤 태그의 배경 색이 변해야 될까요?
+      //    - 버튼을 "클릭" 했을 때, 색상이 변경되려면 어떤 이벤트가 필요한가요?
+      // - [ ] 버튼을 클릭했을 때 h2 태그의 색상 값이 변경됩니다.
+      //    - h2 태그의 content(내용)을 변경하려면 어떤 속성값을 변경해야 할까요?
+      // - [ ] 색상을 나타내는 방식에는 헥스 코드(#RRGGBB)와 10진 코드 (R,G,B) 두 가지 방식이 있습니다.
+      //    - 이 프로젝트에서는 10진 코드(r, g, b) 방식을 사용합니다.
+      //    - rgb(r, g, b)에서 red, green, blue 숫자 범위는 0이상 255이하 입니다. 즉, 각 색상마다 0 ~ 255 사이의 랜덤한 값을 생성해야 합니다.
+
+      const btn = document.querySelector('button');
+      const h2 = document.querySelector('h2');
+      const body = document.querySelector('body');
+
+      btn.addEventListener('click', ()=>{
+        
+        const rColor = Math.floor(Math.random()*256);
+        const gColor = Math.floor(Math.random()*256);
+        const bColor = Math.floor(Math.random()*256);
+
+        body.style.backgroundColor = `rgb(${rColor}, ${gColor}, ${bColor})`;
+        h2.innerText = `rgb(${rColor}, ${gColor}, ${bColor})`;
+      })
+
+    </script>
+  </body>
+</html>
