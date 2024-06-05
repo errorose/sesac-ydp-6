@@ -1,0 +1,30 @@
+@font-face {
+    font-family: 'Ownglyph_meetme-Rg';
+    src: url('https://fastly.jsdelivr.net/gh/projectnoonnu/noonfonts_2402_1@1.0/Ownglyph_meetme-Rg.woff2') format('woff2');
+    font-weight: normal;
+    font-style: normal;
+}
+
+@media screen and (min-width: 500px) {
+    body{
+        background-color: skyblue;
+    }
+}
+
+@media screen and (max-width: 300px) {
+    body{
+        background-color: orange;
+    }
+}
+
+@media screen and (max-height: 300px) {
+    p{
+        font-family: 'Ownglyph_meetme-Rg';
+    }
+}
+
+@media screen and (min-height: 500px) {
+    p{
+        background-color: green;
+    }
+}
