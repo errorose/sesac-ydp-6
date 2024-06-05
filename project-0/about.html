@@ -1,0 +1,409 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Jane Doe | Web Developer & UX Designer</title>
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.7.2/font/bootstrap-icons.css"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="./about.css" />
+  </head>
+  <body
+    data-bs-spy="scroll"
+    data-bs-target="#navbar-example3"
+    data-bs-smooth-scroll="true"
+    class="bg-light"
+  >
+    <nav
+      id="navbar-example3"
+      class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top"
+    >
+      <div class="container">
+        <a class="navbar-brand" href="#">Jane Doe</a>
+        <button
+          class="navbar-toggler"
+          type="button"
+          data-bs-toggle="collapse"
+          data-bs-target="#navbarNav"
+        >
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarNav">
+          <ul class="navbar-nav">
+            <li class="nav-item">
+              <a class="nav-link" href="index.html">Home</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link active" href="#">About</a>
+            </li>
+          </ul>
+          <ul class="navbar-nav ms-auto">
+            <li class="nav-item">
+              <a class="nav-link" href="#skills">Skills</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#experience">Experience</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#portfolio">Portfolio</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#testimonials">Testimonials</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#contact">Contact</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+
+    <div class="container mt-5 pt-4">
+      <section id="profile" class="py-5">
+        <div class="row align-items-center">
+          <div class="col-lg-4 mb-4 mb-lg-0">
+            <img
+              src="https://via.placeholder.com/400x400/17a2b8/ffffff?text=Jane+Doe"
+              class="img-fluid rounded-circle mb-4 shadow-lg"
+              alt="Profile Image"
+            />
+            <div class="d-grid gap-2">
+              <a href="#" class="btn btn-primary btn-lg"
+                ><i class="bi bi-download me-2"></i>Download CV</a
+              >
+              <a href="#contact" class="btn btn-outline-primary btn-lg"
+                ><i class="bi bi-envelope me-2"></i>Contact Me</a
+              >
+            </div>
+            <div class="d-flex justify-content-center fs-2 mt-4">
+              <a href="#" class="text-dark mx-2"
+                ><i class="bi bi-linkedin"></i
+              ></a>
+              <a href="#" class="text-dark mx-2"
+                ><i class="bi bi-github"></i
+              ></a>
+              <a href="#" class="text-dark mx-2"
+                ><i class="bi bi-twitter"></i
+              ></a>
+            </div>
+          </div>
+          <div class="col-lg-8">
+            <h1 class="display-4 mb-4">Jane Doe</h1>
+            <h2 class="text-primary mb-4">
+              Senior Web Developer & UX Designer
+            </h2>
+            <p class="lead">
+              With over 8 years of experience, I specialize in creating
+              beautiful, functional, and user-centric web solutions that drive
+              business growth.
+            </p>
+            <p>
+              Based in San Francisco, I've had the privilege of working with
+              startups, agencies, and Fortune 500 companies. My passion lies in
+              crafting digital experiences that not only look stunning but also
+              provide intuitive user interactions.
+            </p>
+            <blockquote
+              class="blockquote border-start border-primary border-5 ps-4 py-3 my-4"
+            >
+              <p class="mb-0">
+                "Good design is actually a lot harder to notice than poor
+                design, in part because good designs fit our needs so well that
+                the design is invisible."
+              </p>
+              <footer class="blockquote-footer mt-2">
+                Don Norman,
+                <cite title="Source Title">The Design of Everyday Things</cite>
+              </footer>
+            </blockquote>
+            <p>
+              This quote by Don Norman has been a guiding principle throughout
+              my career. It reminds me that the best designs are those that
+              users don't even notice—they just work, intuitively and
+              effortlessly.
+            </p>
+          </div>
+        </div>
+      </section>
+
+      <hr class="my-5" />
+
+      <section id="skills" class="py-5">
+        <h2 class="display-5 mb-4 text-center">Skills & Expertise</h2>
+        <div class="row">
+          <div class="col-md-6">
+            <h4>Technical Skills</h4>
+            <div class="mb-3">
+              <label class="form-label d-flex justify-content-between"
+                >HTML5 & CSS3 <span>95%</span></label
+              >
+              <div class="progress" style="height: 25px">
+                <div
+                  class="progress-bar bg-success"
+                  role="progressbar"
+                  style="width: 95%"
+                  aria-valuenow="95"
+                  aria-valuemin="0"
+                  aria-valuemax="100"
+                ></div>
+              </div>
+            </div>
+            <div class="mb-3">
+              <label class="form-label d-flex justify-content-between"
+                >JavaScript & TypeScript <span>90%</span></label
+              >
+              <div class="progress" style="height: 25px">
+                <div
+                  class="progress-bar bg-info"
+                  role="progressbar"
+                  style="width: 90%"
+                  aria-valuenow="90"
+                  aria-valuemin="0"
+                  aria-valuemax="100"
+                ></div>
+              </div>
+            </div>
+            <div class="mb-3">
+              <label class="form-label d-flex justify-content-between"
+                >React & Vue.js <span>85%</span></label
+              >
+              <div class="progress" style="height: 25px">
+                <div
+                  class="progress-bar bg-warning"
+                  role="progressbar"
+                  style="width: 85%"
+                  aria-valuenow="85"
+                  aria-valuemin="0"
+                  aria-valuemax="100"
+                ></div>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-6">
+            <h4>Soft Skills</h4>
+            <ul class="list-group">
+              <li
+                class="list-group-item d-flex justify-content-between align-items-center"
+              >
+                Problem Solving
+                <span class="badge bg-primary rounded-pill">98%</span>
+              </li>
+              <li
+                class="list-group-item d-flex justify-content-between align-items-center"
+              >
+                Communication
+                <span class="badge bg-primary rounded-pill">95%</span>
+              </li>
+              <li
+                class="list-group-item d-flex justify-content-between align-items-center"
+              >
+                Team Collaboration
+                <span class="badge bg-primary rounded-pill">97%</span>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </section>
+
+      <hr class="my-5" />
+
+      <section id="experience" class="py-5">
+        <h2 class="display-5 mb-4 text-center">Professional Journey</h2>
+        <div class="timeline">
+          <div class="row">
+            <div class="col-md-6 timeline-item">
+              <div class="timeline-content">
+                <h4>Senior Web Developer at TechGiant Inc.</h4>
+                <p class="text-muted">2020 - Present</p>
+                <p>
+                  Led a team of 10 developers, delivering high-traffic web
+                  applications. Implemented CI/CD pipelines, reducing deployment
+                  time by 50%.
+                </p>
+              </div>
+            </div>
+            <div class="col-md-6"></div>
+          </div>
+          <div class="row">
+            <div class="col-md-6"></div>
+            <div class="col-md-6 timeline-item">
+              <div class="timeline-content">
+                <h4>UX Designer at InnovateCo</h4>
+                <p class="text-muted">2017 - 2020</p>
+                <p>
+                  Redesigned user flows, increasing user engagement by 60%.
+                  Conducted user research and A/B testing.
+                </p>
+              </div>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-md-6 timeline-item">
+              <div class="timeline-content">
+                <h4>Junior Developer at StartupX</h4>
+                <p class="text-muted">2014 - 2017</p>
+                <p>
+                  Started my career, building responsive websites and learning
+                  the ropes of web development.
+                </p>
+              </div>
+            </div>
+            <div class="col-md-6"></div>
+          </div>
+        </div>
+      </section>
+
+      <hr class="my-5" />
+
+      <section id="portfolio" class="py-5">
+        <h2 class="display-5 mb-4 text-center">Featured Projects</h2>
+        <div class="row">
+          <div class="col-md-6 col-lg-4 mb-4">
+            <div class="card">
+              <img
+                src="https://via.placeholder.com/400x300/007bff/ffffff?text=E-Commerce"
+                class="card-img-top"
+                alt="E-Commerce Site"
+              />
+              <div class="card-body">
+                <h5 class="card-title">E-Commerce Platform</h5>
+                <p class="card-text">
+                  Built with React, Node.js, and MongoDB. 40% sales increase.
+                </p>
+                <div class="d-flex justify-content-between align-items-center">
+                  <div class="btn-group">
+                    <button
+                      type="button"
+                      class="btn btn-sm btn-outline-primary"
+                    >
+                      View
+                    </button>
+                    <button
+                      type="button"
+                      class="btn btn-sm btn-outline-secondary"
+                    >
+                      Case Study
+                    </button>
+                  </div>
+                  <small class="text-muted">9 months ago</small>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-6 col-lg-4 mb-4">
+            <div class="card">
+              <img
+                src="https://via.placeholder.com/400x300/28a745/ffffff?text=SaaS+App"
+                class="card-img-top"
+                alt="SaaS Application"
+              />
+              <div class="card-body">
+                <h5 class="card-title">SaaS Application</h5>
+                <p class="card-text">
+                  Vue.js frontend with a scalable Node.js backend.
+                </p>
+                <div class="d-flex justify-content-between align-items-center">
+                  <div class="btn-group">
+                    <button
+                      type="button"
+                      class="btn btn-sm btn-outline-primary"
+                    >
+                      View
+                    </button>
+                    <button
+                      type="button"
+                      class="btn btn-sm btn-outline-secondary"
+                    >
+                      Case Study
+                    </button>
+                  </div>
+                  <small class="text-muted">1 year ago</small>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-6 col-lg-4 mb-4">
+            <div class="card">
+              <img
+                src="https://via.placeholder.com/400x300/ffc107/ffffff?text=Portfolio"
+                class="card-img-top"
+                alt="Portfolio Site"
+              />
+              <div class="card-body">
+                <h5 class="card-title">Portfolio Website</h5>
+                <p class="card-text">
+                  HTML5, CSS3, and vanilla JavaScript. Clean and fast.
+                </p>
+                <div class="d-flex justify-content-between align-items-center">
+                  <div class="btn-group">
+                    <button
+                      type="button"
+                      class="btn btn-sm btn-outline-primary"
+                    >
+                      View
+                    </button>
+                    <button
+                      type="button"
+                      class="btn btn-sm btn-outline-secondary"
+                    >
+                      Case Study
+                    </button>
+                  </div>
+                  <small class="text-muted">2 years ago</small>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <hr class="my-5" />
+
+      <section id="testimonials" class="py-5">
+        <h2 class="display-5 mb-4 text-center">Client Testimonials</h2>
+        <div
+          id="testimonialCarousel"
+          class="carousel slide"
+          data-bs-ride="carousel"
+        >
+          <div class="carousel-inner">
+            <div class="carousel-item active">
+              <div class="container">
+                <div class="row">
+                  <div class="col-lg-8 offset-lg-2 text-center">
+                    <img
+                      src="https://via.placeholder.com/150x150/28a745/ffffff?text=J"
+                      class="rounded-circle mb-4 mx-auto d-block"
+                      alt="John Doe"
+                    />
+                    <blockquote class="blockquote">
+                      <p>
+                        "Jane's expertise in UX design transformed our app. User
+                        engagement is up by 60%!"
+                      </p>
+                    </blockquote>
+                    <figcaption class="blockquote-footer">
+                      John Doe, <cite title="Source Title">CEO, TechCo</cite>
+                    </figcaption>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+    </div>
+
+    <footer class="bg-dark text-white mt-5 py-3">
+      <div class="container text-center">
+        <p class="mb-0">&copy; 2024 Jane Doe. All rights reserved.</p>
+      </div>
+    </footer>
+  </body>
+</html>
