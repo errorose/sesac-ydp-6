@@ -1,0 +1,23 @@
+.container{
+    display: flex;
+    gap: 0 20px;
+}
+
+.box{
+    width: 100px;
+    height: 100px;
+    background-color: black;
+    border: 1px solid red;
+    border-radius: 10%;
+}
+
+@media screen and (max-width: 700px) {
+    .container{
+        flex-direction: column;
+        gap: 20px 0;
+    }
+
+    .box{
+        background-color: skyblue;
+    }
+}

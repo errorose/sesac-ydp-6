@@ -1,0 +1,61 @@
+header{
+    background-color: lightblue;
+    position: fixed;
+    width: 100%;
+    height: 50px;
+    line-height: 50px;
+}
+
+.igloo{
+    position: absolute;
+    left: 100px;
+    top: 5px;
+    color: white;
+    font-size: 30px;
+}
+
+.bars{
+    position: absolute;
+    right: 50px;
+    display: none;
+}
+
+nav>ul{
+    display: flex;
+    list-style: none;
+    justify-content: center;
+    gap: 0 20px;
+    font-weight: bold;
+    margin: 0;
+    padding: 0;
+}
+
+@media screen and (max-width: 768px) {
+    .igloo{
+        left: 50%;
+        transform: translateX(-50%);
+    }
+
+    .bars{
+        position: absolute;
+        display: block;
+    }
+
+    nav>ul{
+        flex-direction: column;
+        align-items: center;
+        margin-top: 50px;
+        background-color: rgb(219, 236, 241);
+    }
+
+    li{
+        width: 100%;
+        text-align: center;
+    }
+
+    li:hover{
+        background-color: black;
+        color: white;
+    }
+}
+

@@ -1,0 +1,30 @@
+@font-face {
+    font-family: 'MangoDdobak-B';
+    src: url('https://fastly.jsdelivr.net/gh/projectnoonnu/2405-3@1.1/MangoDdobak-B.woff2') format('woff2');
+    font-weight: 700;
+    font-style: normal;
+}
+
+.container{
+    width: 600px;
+    height: 300px;
+    background: linear-gradient(#f1c2d8, #d5d9fa);
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.text{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    color: floralwhite;
+    font-size: 50px;
+    font-family: 'MangoDdobak-B';
+}
+
+ul>.cat{
+    color : red;
+}
