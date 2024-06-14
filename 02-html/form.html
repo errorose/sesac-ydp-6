@@ -10,22 +10,26 @@
 
     <!-- form 태그 : 사용자로부터 입력받는 요소들을 감싸는 태그
         - action 속성 : 사용자가 폼에 입력한 값을 전달한 주소
-        - method 속성 : 사용자가 폼에 입력한 값을 전달할 방법
+        - method 속성 : 사용자가 폼에 입력한 값을 전달할 방법 (GET, POST)
         => 위 두가지 속성은 "서버" 연관된 내용 -> 백엔드 진도나갈 때 다시 소개
 
         form은 화면에 드러나지 않는 추상적인 태그 (양식)
     -->
     <form>
         <!-- form 요소 : 폼 태그 안에 있는 사용자의 입력값을 받는 요소 
-            input, textarea, select... 태그들에는 name 속성을 가질 수 있어요. "서버"와 연관    
+            input, textarea, select... 태그들에는 name 속성을 가질 수 있어요. "서버"와 연관  
+            - name 속성 : 폼 요소(input, textarea, ...)에 각각 이름을 지정
+                -> 서버가 어떤 폼 요소에 어떤 값이 입력되었는지를 구별해줄 수 있는 key 역할  
         -->
 
         <!-- input 태그 
             - disabled 속성 : 편집을 불가능하도록 막음 (input 막기)
             - placeholder 속성 : 미리보기 텍스트 (안내문구)
         -->
-        Text <input type="text"> <br>
+        Text <input type="text" autofocus> <br>
         Text2 <input type="text" disabled> <br>
+        Text3 <input type="text" readonly value="안녕"> <br>
+        
         
         <!-- label 태그의 for 속성값과 input 태그의 속성값을 일치시키면, label 글씨를 클릭했을 때 input 창에 포커싱 
             => 웹 접근성에 적합 (사용자가 편리하게 사용할 수 있기 때문)
@@ -80,6 +84,13 @@
             </optgroup>
         </select>
         <br>
+
+        <!-- fieldset: 그룹화, legend: 그룹화한 제목 -->
+        <fieldset>
+            <legend>개인 정보</legend>
+            <label for="name">이름: </label><input type="text" id="name" /><br />
+            <label for="age">나이: </label><input type="text" id="age" />
+        </fieldset>
 
         <!-- 버튼 
             1. input 태그의 type 속성을 이용해 버튼 만들기
