@@ -1,3 +1,6 @@
+// 실습
+// promise 사용하기
+
 function call(name, cb) {
     setTimeout(function() {
         console.log(name);
@@ -28,6 +31,8 @@ call('kim', function (name) {
     });
 });
 
+// ##############################################
+
 function call(name) {
     return new Promise(function(resolve, reject){
         setTimeout(function() {
@@ -37,14 +42,6 @@ function call(name) {
     })
 }
 
-function back() {
-    return new Promise(function(resolve, reject){
-        setTimeout(function(){
-            console.log(back);
-            resolve();
-        }, 1000);
-    })
-}
 
 
 async function exec(){
