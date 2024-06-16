@@ -22,7 +22,7 @@ function goMart(){
 }
 
 function pickDrink(){
-    // setTimeout을 이용해 3초롤 기다린 후에 코드 실행
+    // setTimeout을 이용해 3초를 기다린 후에 코드 실행
     setTimeout(function(){
         console.log('고민 끝!');
         product = '제로 콜라';

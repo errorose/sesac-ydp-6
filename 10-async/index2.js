@@ -75,7 +75,7 @@ function nopay() {
 
 goMart();
 pickDrink().then(pay).catch(nopay);
-pickDrink().then(function () {
-    pay();
-});
+// pickDrink().then(function () {
+//     pay();
+// });
 
