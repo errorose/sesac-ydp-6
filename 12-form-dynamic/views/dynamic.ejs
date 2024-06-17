@@ -17,11 +17,11 @@
     <!-- 동적 폼 (action 안씀) -->
     <form name="register">
         <label for="name">이름</label>
-        <input type="text" name="name" id="name">
+        <input type="text" name="name" id="name" required>
         <br>
 
         <span>성별</span>
-        <input type="radio" name="gender" value="남자" id="male">
+        <input type="radio" name="gender" value="남자" id="male" required>
         <label for="male">남자</label>
         <input type="radio" name="gender" value="여자" id="female">
         <label for="female">여자</label>
@@ -116,7 +116,7 @@
             axios({
                 method: 'GET',
                 // i) params 키를 이용하지 않는다면 요청 url에 query string을 작성
-                url: `axios?name${form.name.value}&gender=${form.gender.value}`,
+                url: `/axios?name=${form.name.value}&gender=${form.gender.value}`,
                 // ii) params 키를 이용하는 경우
                 // url: 'axios',
                 // url: '/axios2',                 // 존재하지 않는 경로로 에러 나오게끔 하기
