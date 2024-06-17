@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <!-- jQuery CDN (ajax 간편하게 사용하고자 불러옴) -->
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js" integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
+</head>
+<body>
+    <h2><%= title %></h2>
+
+    <!-- 동적 폼 (action 안씀) -->
+    <form name="register">
+        <label for="name">이름</label>
+        <input type="text" name="name" id="name">
+        <br>
+
+        <span>성별</span>
+        <input type="radio" name="gender" value="남자" id="male">
+        <label for="male">남자</label>
+        <input type="radio" name="gender" value="여자" id="female">
+        <label for="female">여자</label>
+        <br>
+
+        <button type="button" onclick="ajaxGet();">ajax get 방식 요청</button>
+        <button type="button" onclick="ajaxPost();">ajax post 방식 요청</button>
+    </form>
+
+    <!-- 폼 제출시 페이지 이동 없이 결과값 div에 나타내기 -->
+    <div class="result"></div>
+
+    <script>
+        const resultBox = document.querySelector('.result');
+
+        // Get
+        function ajaxGet(){
+            console.log('click ajaxGet btn!');
+
+            // 폼 선택하기
+            const form = document.forms['register'];
+
+            // 폼 요소의 값을 추출하기
+            console.dir(form);  // 요소 자체를 자바스크립트 오브젝트 트리 구조로 보여줌.
+            console.dir(form.name);
+            console.dir(form.gender);
+            console.dir(form.name.value);   // 이름 input에 작성된 문자열 (input에 넣은 값을 꺼내오기.)
+            console.dir(form.gender.value); // 성별 input이 선택된 값
+
+            // 서버로 보낼 데이터 양식 생성하기
+            const data = {
+                name: form.name.value,
+                gender: form.gender.value
+            };
+
+            // ajax 비동기 통신 (GET 방식)
+            // (서버의 app.js 파일로 유저가 브라우저에 입력한 값을 보내기)
+            $.ajax({
+                type: 'GET',
+                url: '/ajax',
+                data,   // data: data // data: { name: form.name.value, gender: form.gender.value } 와 같다.
+                success: function(data){
+                    console.log(data);
+                    resultBox.textContent = `GET /ajax 요청에 대한 응답 완료! ${data.name}님은 ${data.gender}이시죠?ㅎㅎ`;
+                    resultBox.style.color = 'blue';
+                }
+            });
+        }
+
+        // Post 
+        function ajaxPost(){
+            console.log('click ajaxPost btn!');
+
+            // 폼 선택하기
+            const form = document.forms['register'];
+
+            // 서버로 보낼 데이터 양식 생성하기
+            const data = {
+                name: form.name.value,
+                gender: form.gender.value
+            };
+
+            // ajax 비동기 통신 (POST 방식)
+            $.ajax({
+                type: 'POST',
+                url: '/ajax',
+                data,
+                success: function(data){
+                    console.log(data);
+                    resultBox.textContent = `POST /ajax 요청에 대한 응답 완료! ${data.name}님은 ${data.gender}이시죠?ㅎㅎ`;
+                    resultBox.style.color = 'red';
+                }
+            });
+        }
+    </script>
+</body>
+</html>
