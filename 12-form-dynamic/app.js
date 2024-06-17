@@ -26,6 +26,30 @@ app.post('/ajax', (req, res)=>{
     res.send(req.body);
 })
 
+// axios (GET)
+app.get('/axios', (req, res)=>{
+    console.log(req.query);
+    res.send(req.query);
+})
+
+// axios (POST)
+app.post('/axios', (req, res)=>{
+    console.log(req.body);
+    res.send(req.body);
+})
+
+// fetch (GET)
+app.get('/fetch', (req, res)=>{
+    console.log(req.query);
+    res.send(req.query);
+})
+
+// fetch (POST)
+app.post('/fetch', (req, res)=>{
+    console.log(req.body);
+    res.send(req.body);
+})
+
 app.listen(PORT, ()=>{
     console.log(`Server start! http://localhost:${PORT}`);
 })
