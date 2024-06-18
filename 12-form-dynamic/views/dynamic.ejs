@@ -140,12 +140,14 @@
             console.log(form.gender[1].checkValidity());
 
             // radio type input은 둘 중 하나라도 check되면 전부 true 출력, 아니면 false 출력
-            if(!form.name.checkValidity()){
-                // !false => true
+            if(!form.name.checkValidity()){ // !false => true
+                // 이름 미입력시 : '이름을 입력해주세요!!'
                 resultBox.textContent = '이름을 입력해주세요!!'
             }else if(!form.gender[0].checkValidity()){
-                resultBox.textContent = '성별을 입력해주세요!!'
+                // 성별 미입력시 : '성별을 선택해주세요!!'
+                resultBox.textContent = '성별을 선택해주세요!!'
             }else{
+                // 이름, 성별 모두 입력되었으면 정상적으로 요청 날리기
                 axios({
                 method: 'GET',
                 // i) params 키를 이용하지 않는다면 요청 url에 query string을 작성
