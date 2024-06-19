@@ -13,7 +13,9 @@ app.use(express.json());
 
 // multer 미들웨어 등록
 // 요청이 들어올때마다 미들웨어가 실행됨
+app.use('/static', express.static(__dirname + '/public'));
 app.use('/uploads', express.static(__dirname + '/uploads'));
+
 // const upload = multer({
 //     dest: 'uploads/',
 // })
@@ -70,6 +72,11 @@ app.post('/upload/fields', uploadDetail.fields([{name: 'kiwi'}, {name: 'orange'}
     console.log(req.files); // { kiwi: [ {}, ... ], orange: [ {}, ... ] }
 
     res.send('Success Upload!! (multiple2)');
+})
+
+// 동적 폼 업로드
+app.post('/dynamicFile', uploadDetail.single('thumbnail'), (req, res)=>{
+    res.send(req.file);
 })
 
 app.get('/', (req, res)=>{
