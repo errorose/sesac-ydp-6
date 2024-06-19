@@ -15,5 +15,21 @@
         <input type="text" name="title">
         <button type="submit">업로드</button>
     </form>
+
+    <h2>Multi file upload case1</h2>
+    <form action="/upload/array" method="POST" enctype="multipart/form-data">
+        <input type="file" name="userfiles" multiple><br>
+        <input type="text" name="title">
+        <button type="submit">업로드</button>
+    </form>
+
+    <h2>Multi file upload case2</h2>
+    <form action="/upload/fields" method="POST" enctype="multipart/form-data">
+        <input type="file" name="kiwi"><br>
+        <input type="text" name="title"><br>
+        <input type="file" name="orange"><br>
+        <input type="text" name="title2"><br>
+        <button type="submit">업로드</button>
+    </form>
 </body>
 </html>
