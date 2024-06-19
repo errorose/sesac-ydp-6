@@ -164,7 +164,7 @@
                 // console.log(res.headers);       // 응답의 헤더
                 // console.log(res.config);        // 응답의 설정
 
-                const  {name, gender} = res.data;  // {name: '션', gender: '여자'}
+                const  {name, gender} = res.data;  // {name: '예슬', gender: '여자'}
                 resultBox.textContent = `GET /axios 요청에 대한 응답 완료! ${name}님은 ${gender}이시죠?ㅎㅎ`;
                 resultBox.style.color = 'green';
             }).catch(function(err){
