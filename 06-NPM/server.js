@@ -13,5 +13,5 @@ const server = http.createServer((req, res)=>{
     })   // readFile 함수로 index.html 파일 가져오기
 });
 server.listen(8000, ()=>{
-    console.log('8000서버 실행');
+    console.log('8000포트에서 서버 실행중');
 })
