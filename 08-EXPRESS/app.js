@@ -7,14 +7,22 @@ app.set('view engine', 'ejs');
 app.set('views', './views'); // views 폴더 안에 파일.ejs (화면에 보여지는 views들은 이 폴더에서 가져와라)
 
 app.get('/', (req, res)=>{
-    res.render('index');    // index파일 불러오기
+    res.render('index', {title: express});    // index파일 불러오기
+})
+
+app.get('/about', (req, res)=>{
+    res.render('about', {title: express})
+})
+
+app.get('/create', (req, res)=>{
+    res.render('create', {title: express})
 })
 // app.get('/', function(req, res){
 //     res.send('Hello Express');
 // })
 
 app.listen(PORT, ()=>{
-    console.log('8000포트에서 서버 실행중');
+    console.log(`http://localhost:${PORT}`);
 })
 
 /**
