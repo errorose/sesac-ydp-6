@@ -25,11 +25,38 @@ function createVisitor(){
                 <td>${data.name}</td>
                 <td>${data.comment}</td>
                 <td><button type="button">수정</button></td>
-                <td><button type="button">삭제</button></td>
+                <td><button type="button" onclick="deleteVisitor(this, ${data.id});">삭제</button></td>
             </tr>
         `;
 
         // insertAdjacentHTML: 특정 요소에 html 추가
         tbody.insertAdjacentHTML('beforeend', html);
+    })
+}
+
+// [삭제] 버튼 클릭시
+// - 테이블에서 해당 행 삭제
+function deleteVisitor(obj, id){
+    console.log(obj); // 클릭한 삭제 버튼
+    console.log(id);  // 행의 id
+
+    // console.log(confirm('진짜로 삭제?'));
+    if(!confirm('진짜로 삭제?')){ // false: 취소버튼 클릭
+        return; // deleteVisitor 함수 종료 -> 백으로 요청 x
+    }
+
+    axios({
+        method: 'DELETE',
+        url: '/visitor',
+        data: {
+            id      // id: id
+        }
+    }).then((res)=>{
+        console.log(res.data);
+
+        if(res.data.result){
+            // alert('삭제 성공!');
+            obj.parentElement.parentElement.remove();
+        }
     })
 }

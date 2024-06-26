@@ -51,3 +51,25 @@ exports.postVisitor = (data, callback) => {
       }
     )
   }
+
+  exports.deleteVisitor = (targetId, callback)=>{
+    // targetId: 삭제해야할 visitor id
+    conn.query(`delete from visitor where id = ${targetId}`, (err, rows)=>{
+      if(err){
+        throw err;
+      }
+
+      console.log('model/Visitor.js >> ', rows);
+      // OkPacket {
+      //   fieldCount: 0,
+      //   affectedRows: 1,
+      //   insertId: 0,
+      //   serverStatus: 2,
+      //   warningCount: 0,
+      //   message: '',
+      //   protocol41: true,
+      //   changedRows: 0
+      // }
+      callback(true); // 삭제
+    });
+  }
