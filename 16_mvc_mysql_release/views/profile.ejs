@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <%- include('include/include', { title: '회원 정보' })%>
+  <body>
+    <h1>회원 정보</h1>
+    <a href="/">HOME</a>
+    <p>ID 수정 불가능, Password, Name 수정 가능</p>
+
+    <form name="form_profile">
+      <label for="userid">ID</label>
+      <input type="hidden" id="id" value="<%= id %>" />
+      <input id="userid" type="text" name="userid" value="<%= userid %>" readonly /><br />
+      <label for="password">Password</label>
+      <input id="password" type="password" name="pw" value="<%= pw %>" required /><br />
+      <label for="name">Name</label>
+      <input id="name" type="text" name="name" value="<%= name %>" required /><br />
+      <button type="button" onclick="profileEdit();">Edit</button>
+      <button type="button" onclick="profileDelete();">Delete</button>
+    </form>
+
+    <script>
+      async function profileEdit() {
+        console.log('modify btn');
+        const form = document.forms['form_profile'];
+
+        const data = {
+          id: form.id.value,
+          userid: form.userid.value,
+          pw: form.pw.value,
+          name: form.name.value
+        }
+
+        try{
+          const editRes = await axios({
+            method: 'PATCH',
+            url: '/user/profile/edit',
+            data
+          })
+          if(editRes.data.result){
+            alert('회원정보 수정 성공!');
+          }
+        }catch(err){
+          alert('회원정보 수정 실패!');
+          console.log(err);
+        }
+      }
+
+      async function profileDelete() {
+        console.log('delete btn');
+        const form = document.forms['form_profile'];
+
+        const data = {
+          id: form.id.value
+        }        
+
+        if(!confirm('정말로 탈퇴? 진짜 탈퇴?')){
+          return;
+        }
+
+        try{
+          const deleteRes = await axios({
+            method: 'DELETE',
+            url: '/user/profile/delete',
+            data
+          })
+
+          if(deleteRes.data.result){
+            alert('탈퇴 되었습니다!');
+            document.location.href = '/';
+          }
+        }catch(err){
+          alert('탈퇴 되지 않았습니다!');
+          console.log(err);
+        }
+      }
+    </script>
+  </body>
+</html>
