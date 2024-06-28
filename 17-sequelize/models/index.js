@@ -13,6 +13,8 @@ const sequelize = new Sequelize(
 const PlayerModel = require('./Player')(sequelize, Sequelize); 
 const TeamModel = require('./Team')(sequelize, Sequelize); 
 const ProfileModel = require('./Profile')(sequelize, Sequelize); 
+const GameModel = require('./Game')(sequelize, Sequelize); 
+const TeamGameModel = require('./TeamGame')(sequelize, Sequelize); 
 
 // 모델간 관계 연결
 // 1) Player : Profile = 1 : 1
@@ -46,6 +48,20 @@ PlayerModel.belongsTo(TeamModel, {
   foreignKey: 'team_id',
   // 참조하게 될 TeamModel의 키는 'team_id'
   targetKey: 'team_id'
+});
+
+// 3) Team : Game = N : M
+// 하나의 팀은 여러 게임 가능, 한 게임에는 여러 팀이 참여
+// 두 모델의 관계 모델은 TeamGameModel
+TeamModel.belongsToMany(GameModel, {
+  through: TeamGameModel, // 중계(관계) 테이블
+  foreignKey: 'team_id', // TeamGameModel에서 TeamModel을 참조하는 fk
+  otherKey: 'game_id', // TeamGameModel에서 GameModel을 참조하는 fk
+});
+GameModel.belongsToMany(TeamModel, {
+  through: TeamGameModel, // 중계(관계) 테이블
+  foreignKey: 'game_id', // TeamGameModel에서 GameModel을 참조하는 fk
+  otherKey: 'team_id'  // TeamGameModel에서 TeamModel을 참조하는 fk
 });
 
 db.sequelize = sequelize;

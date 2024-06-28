@@ -3,6 +3,7 @@ const app = express();
 const PORT = 8000;
 const router = require('./routes/index');
 const playerRouter = require('./routes/player');
+const teamRouter = require('./routes/team');
 const {sequelize} = require('./models/index');
 
 app.set('view engine', 'ejs');
@@ -13,6 +14,7 @@ app.use(express.json());
 // 라우터 미들웨어 등록
 app.use('/', router);
 app.use('/players', playerRouter);
+app.use('/teams', teamRouter);
 
 sequelize
     // force: true; 서버 실행때 마다 테이블을 재 생성

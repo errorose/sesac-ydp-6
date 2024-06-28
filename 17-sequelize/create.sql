@@ -36,9 +36,7 @@ insert into teamgame(team_id, game_id, createdAt, updatedAt) values
   (3, 1, now(), now()), 
   (1, 3, now(), now()), 
   (3, 3, now(), now());
-
-desc player;
-desc profile;
+  
 
 select * from player;
 select * from profile;
