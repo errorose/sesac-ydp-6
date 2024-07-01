@@ -3,14 +3,16 @@
     "cookie-parser": "^1.4.6",
     "dotenv": "^16.4.5",
     "ejs": "^3.1.10",
-    "express": "^4.19.2"
+    "express": "^4.19.2",
+    "express-session": "^1.18.0"
   },
   "name": "18-cookie-session",
   "version": "1.0.0",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start:cookie": "nodemon cookie.js"
+    "start:cookie": "nodemon cookie.js",
+    "start:session": "nodemon session.js"
   },
   "keywords": [],
   "author": "",
