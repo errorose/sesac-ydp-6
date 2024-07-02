@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>실습</title>
+   <!-- 부트스트랩 -->
+   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-Zenh87qX5JnK2Jl0vWa8Ck2rdkQ2Bzep5IDxbcnCeuOxjzrPF/et3URy9Bv1WTRi" crossorigin="anonymous">
+   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-OERcA2EqjJCMA+/3y+gxIOqMEjwtxJY7qPCqsdltbNJuaOe923+mo//f6V8Qbsw3" crossorigin="anonymous"></script>
+   <!-- axios -->
+   <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+</head>
+<body>
+    <!-- Modal -->
+    <div class="modal fade show" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-modal="true" role="dialog" style="display: block;">
+        <div class="modal-dialog">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title" id="exampleModalLabel">cookie 실습</h5>
+              <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close" onclick="closeModal()"></button>
+            </div>
+            <div class="modal-body">
+              쿠키 실습
+              <div class="text-end mt-3">
+                <input type="checkbox" id="cookie">
+                <label for="cookie" style="cursor: pointer">오늘 하루 보지 않음.</label>
+              </div>
+            </div>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-secondary" onclick="closeModal();">
+                닫기
+              </button>
+            </div>
+          </div>
+        </div>
+    </div>
+
+    <h1>실습. Cookie 연습</h1>
+    <p>
+        페이지 접속했을 때 위와 같은 창 보이게 하고, 
+        “오늘 그만 보기” 선택한 후 “닫기” 하면 
+        브라우저를 껐다 켜도 창이 보이지 않게 하기
+    </p>
+    <p>
+        개발자도구 > Application > Storage > Cookies > 주소 클릭 후 
+        쿠키를 삭제했다면 브라우저 새로고침시 alert 창이 나타나야 함!
+    </p>
+   
+    <script>
+        const modal = document.querySelector('#exampleModal');
+        // console.log('modal >> ', modal);
+        const popupCookie = '<%= popup %>'
+        if(popupCookie === 'hide'){
+            modal.remove();
+        }
+
+        function closeModal(){
+            const checked = document.querySelector('#cookie').checked;
+            // console.log(checked); // 체크(o): true, 체크(x): false
+            if(checked){
+                axios({
+                        method: 'GET',
+                        url: '/setCookie'
+                    }).then((res)=>{
+                        console.log('res.data >> ', res.data);
+                    })
+            }
+            modal.remove();
+        }
+    </script>
+  </body>
+</body>
+</html>
