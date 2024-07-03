@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>socket.io 채팅</title>
+    <!-- cdn -->
+    <!-- 서버가 실행 중이지 않아도 클라이언트 라이브러리를 사용 할 수 있음. -->
+    <!-- <script src="https://cdn.socket.io/4.7.5/socket.io.min.js" integrity="sha384-2huaZvOR9iDzHqslqwpR87isEmrfxqyWOF7hr7BY6KG0+hVKLoEXMPUJw3ynWuhO" crossorigin="anonymous"></script> -->
+
+    <!-- Socket.IO 서버가 제공하는 클라이언트 라이브러리 -->
+    <!-- 서버에서 자동 제공됨. Socket.IO 서버가 실행 중일 때만 작동함. -->
+    <script src="/socket.io/socket.io.js"></script>
+
+    <style>
+        /* [실습 2] 채팅창 UI 만들기 */
+        .chat-list{
+            background-color: skyblue;
+            height: 500px;
+            padding: 10px;
+            overflow: auto;
+        }
+
+        .chat-list div{
+            margin-top: 3px;
+        }
+
+        .chat-list div div{
+            display: inline-block;
+            padding: 3px;
+        }
+
+        .my-chat{
+            text-align: right;
+        }
+
+        .my-chat div{
+            background-color: yellow;
+        }
+
+        .other-chat div{
+            background-color: white;
+        }
+
+        /* [실습 3] 채팅창 입장 안내 문구 */
+        .notice{
+            text-align: center;
+            color: #333;
+            font-size: 12px;
+        }
+
+    </style>
+</head>
+<body>
+    <h1>My Chat</h1>
+
+    <!-- [실습 1] 각 버튼을 누를 때 마다 서버로 메시지 보내기 -->
+    <!-- <button onclick="sayHello();">Hello</button>
+    <button onclick="sayStudy();">Study</button>
+    <button onclick="sayBye();">Bye</button>
+    <p id="from-server"></p> -->
+    
+
+
+    <!-- [실습 3-2] socket.id => nickname // 닉네임 입력 폼 -->
+    <div class="entry-box">
+        <input 
+            type="text"
+            id="nickname"
+            placeholder="닉네임"
+            autofocus
+            onkeypress="if(window.event.keyCode==13){join()}"
+         />
+        <button type="button" onclick="join()">입장</button>
+    </div>
+
+    <!-- (참고) keyCode 아는 방법 -->
+    <!-- <input type="text" id="myInput"> -->
+
+
+    <!-- [실습 2] 채팅 UI 만들기. -->
+    <main class="chat-box">
+        <div class="chat-list">
+            <div class="my-chat">
+                <div>user1 : msg1</div>
+            </div>
+            <div class="other-chat">
+                <div>user2 : msg2</div>
+            </div>
+        </div>
+    </main>
+
+
+
+
+    <script>
+        // (참고) keycode 아는 방법.
+        // document.getElementById('myInput').addEventListener('keydown', (e)=>{
+        //     console.log('key down >> ', e.keyCode);
+        // });
+
+
+        let socket = io(); 
+        // 소켓 사용을 위한 객체 생성.
+
+        socket.on('connect', () => {
+            console.log('클라이언트 연결 완료 ::', socket.id);
+            // console.log(socket);
+        })
+        // (참고) 소켓 연결 완료.
+
+
+        // [실습 1]
+        // function sayHello(){
+        //     socket.emit('hello', {who: 'client', msg: 'hello'})
+        // }
+
+        // socket.on('hellokr', (data)=>{
+        //     console.log('data >> ', data); // {who: 'hello', msg: '안녕!!!'}
+        //     document.querySelector('#from-server').textContent = `${data.who} : ${data.msg}`
+        // })
+
+        // function sayStudy(){
+        //     socket.emit('study', {who: 'client', msg: 'study'})
+        // }
+
+        // socket.on('studykr', (data)=>{
+        //     console.log('data >> ', data);
+        //     document.querySelector('#from-server').textContent = `${data.who} : ${data.msg}`
+        // })
+
+        // function sayBye(){
+        //     socket.emit('bye', {who: 'client', msg: 'bye'})
+        // }
+
+        // socket.on('byekr', (data)=>{
+        //     console.log('data >> ', data);
+        //     document.querySelector('#from-server').textContent = `${data.who} : ${data.msg}`
+        // })
+        
+
+        // [실습 3] 채팅창 입장 안내 문구
+        socket.on('notice', (msg) => {
+            console.log(msg);
+            document.querySelector('.chat-list').insertAdjacentHTML('beforeend', `<div class="notice">${msg}</div>`)
+        })
+        // insertAdjacentHTML vs innerHTML
+        // insertAdjacentHTML : 삽입할 위치를 명시적으로 지정할 수 있음. 특정 위치에 HTML을 추가하려면 <-- 사용
+        // (beforeend, beforebegin, afterbegin, afterend)
+        // innerHTML : 요소의 전체 내용을 대체하게 됨. 요소의 내용을 한 번에 대체하거나 가져올 수 있음. 해당 요소의 내용을 변경.
+
+        // [실습 3-2] 채팅창 입장 문구 socket.id -> nickname
+        function join(){
+            socket.emit('setNick', document.querySelector('#nickname').value);
+        }
+    </script>
+</body>
+</html>
