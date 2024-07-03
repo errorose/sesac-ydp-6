@@ -10,11 +10,11 @@ exports.postSignIn = (req, res)=>{
     const {userid, userpw} = req.body;
     console.log('req.body >> ', req.body);
 
-    User.postSignIn({userid: userid}, (result)=>{
+    User.postSignIn({userid: userid}, (result)=>{       // {userid: userid} -> req의 userid와 DB의 userid
         if(!result){
             return res.send({flag: false});
         }else{
-            if(userpw !== result.pw){  // result.pw: 데이터베이스의 비밀번호 필드명
+            if(userpw !== result.pw){                   // result.pw: 데이터베이스의 비밀번호 필드명
                 return res.send({flag: false});
             }else{
                 return res.send({flag: true});
