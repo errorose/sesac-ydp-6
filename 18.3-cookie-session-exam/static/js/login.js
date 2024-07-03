@@ -10,7 +10,7 @@ const resultBox = document.querySelector('.msg');
         userid: form.userid.value,
         userpw: form.userpw.value
     };
-    console.log('data >> ', data);
+    console.log('front data >> ', data);
 
     if(data.userid === ''){
         resultBox.textContent = '아이디를 입력해주세요!'
@@ -24,20 +24,26 @@ const resultBox = document.querySelector('.msg');
             url: '/user/signin',
             data,
         }).then((res)=>{
-            console.log('res.data >> ', res.data);
-            return res.data;  
+            console.log('front2 res >> ', res);
+            console.log('front2 res.data >> ', res.data); // 컨트롤러의 res.send()
+            return res.data;
         }).then((data)=>{
-            if(data.flag){ // true
+            console.log('front3 res.data >> ', data); // res.data
+            if(data.flag){
+                console.log('data.flag >> ', data.flag); // true
                 alert('로그인 성공!');
+                formInfo.userid.value = form.userid.value; // formInfo에 userid 설정
+                formInfo.submit();
                 // window.location.href = '/user/profile';
-            }else{ // false
+            }else{
+                console.log('data.flag >> ', data.flag); // false
                 alert('로그인 실패!');
                 form.userid.value = '';
                 form.userpw.value = '';
             }
         }).catch((error)=>{
             console.error(error);
-            alert('알 수 없는 오류로 에러 발생... 다시 시도해 주세요!!');
+            alert('알수없는 오류로 로그인 실패... 다시 시도해 주세요!');
         })
     }
 

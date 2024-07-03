@@ -23,7 +23,21 @@ exports.postSignIn = (data, callback)=>{
             if(err){
                 throw err;
             }
-            console.log('DB 로그인 유저 조회 >> ', rows); // MySQL{ id: 2, userid: 'test', name: 'test', pw: '1234' }
+            console.log('DB 로그인 유저 조회 >> ', rows);  // MySQL{ id: 2, userid: 'test', name: 'test', pw: '1234' }
+            callback(rows[0]);
+        }
+    )
+}
+
+// 로그인 성공시 회원정보 수정 페이지
+exports.postProfile = (data, callback)=>{
+    conn.query(
+        `select * from user where userid = '${data.userid}'`,
+        (err, rows)=>{
+            if(err){
+                throw err;
+            }
+            console.log('유저 상세보기 조회 >> ', rows); // MySQL{ userid: 'test', userpw: '1234' }
             callback(rows[0]);
         }
     )

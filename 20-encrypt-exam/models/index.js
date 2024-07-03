@@ -1,43 +1,30 @@
-'use strict';
+const Sequelize = require('sequelize'); // sequelize 패키지 불러오기
+const config = require(__dirname + '/../config/config.json')["development"]; // DB 연결 정보
+const db = {}; // 빈 객체 생성
 
-const fs = require('fs');
-const path = require('path');
-const Sequelize = require('sequelize');
-const process = require('process');
-const basename = path.basename(__filename);
-const env = process.env.NODE_ENV || 'development';
-const config = require(__dirname + '/../config/config.json')[env];
-const db = {};
+const sequelize = new Sequelize(
+  config.database,
+  config.username,
+  config.password,
+  config
+); // sequelize 객체 생성
 
-let sequelize;
-if (config.use_env_variable) {
-  sequelize = new Sequelize(process.env[config.use_env_variable], config);
-} else {
-  sequelize = new Sequelize(config.database, config.username, config.password, config);
-}
-
-fs
-  .readdirSync(__dirname)
-  .filter(file => {
-    return (
-      file.indexOf('.') !== 0 &&
-      file !== basename &&
-      file.slice(-3) === '.js' &&
-      file.indexOf('.test.js') === -1
-    );
-  })
-  .forEach(file => {
-    const model = require(path.join(__dirname, file))(sequelize, Sequelize.DataTypes);
-    db[model.name] = model;
-  });
-
-Object.keys(db).forEach(modelName => {
-  if (db[modelName].associate) {
-    db[modelName].associate(db);
-  }
-});
+// 모델 불러오기
+const MemberModel = require('./Member')(sequelize, Sequelize);
 
 db.sequelize = sequelize;
 db.Sequelize = Sequelize;
+//  db = {
+//    sequelize: sequelize,
+//    Sequelize: Sequelize
+//  }
+
+db.Member = MemberModel;
+//  db = {
+//    sequelize: sequelize,
+//    Sequelize: Sequelize,
+//    Member: MemberModel
+//  }
 
 module.exports = db;
+// db 객체를 모듈로 내보냄 -> 다른 파일에서 db 모듈을 사용할 예정

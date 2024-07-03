@@ -1,18 +1,8 @@
 const express = require('express');
-const controller = require('../controller/Cuser');
+const controller = require('../controller/Cindex');
 const router = express.Router();
 
+// 메인 페이지(로그인)
 router.get('/', controller.main);
-
-router.get('/user', controller.main);
-
-// 로그인 회원 조회
-router.post('/user/signin', controller.postSignIn);
-
-// 로그아웃 페이지
-
-
-// 회원가입 페이지
-router.get('/user/signup', controller.getSignUp);
 
 module.exports = router;

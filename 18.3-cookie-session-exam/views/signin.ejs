@@ -4,10 +4,12 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>로그인</title>
+    <!-- axios -->
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
     <link rel="stylesheet" href="/static/css/login.css">
 </head>
 <body>
-    <form name="form_info" action="/profile" method="POST">
+    <form name="form_info" action="/user/profile" method="POST">
         <input type="hidden" name="userid" />
     </form>
 
@@ -28,8 +30,6 @@
         </div>
     </div>
 
-    <!-- axios -->
-    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
     <script src="/static/js/login.js"></script>
 </body>
 </html>

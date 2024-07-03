@@ -2,6 +2,8 @@
 const express = require('express');
 const app = express();
 const path = require('path');
+const indexRouter = require('./routes/index');
+const userRouter = require('./routes/user');
 const session = require('express-session');
 const dotenv = require('dotenv');
 
@@ -36,11 +38,10 @@ app.use(session({
 }));
 
 // 라우터
-const indexRouter = require('./routes/index');
 app.use('/', indexRouter);
+app.use('/user', userRouter);
 
-app.use('/user', indexRouter);
-
+// 404
 app.get('*', (req, res)=>{
     res.render('404');
 })
