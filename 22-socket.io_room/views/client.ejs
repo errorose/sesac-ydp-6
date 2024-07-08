@@ -32,6 +32,38 @@
         #notice p {
             margin: 0;
         }
+
+        .my-chat {
+            display: flex;
+            justify-content: end;
+            padding: 2px 0px;
+        }
+
+        .my-chat p {
+            margin: 0;
+            padding: 10px;
+            background-color: yellow;
+            border-radius: 10px;
+            margin-right: 10px;
+        }
+
+        .other-chat {
+            display: flex;
+            justify-content: start;
+            padding: 2px 0px;
+        }
+
+        .other-chat p {
+            margin: 0px;
+            padding: 10px;
+            background-color: white;
+            border-radius: 10px;
+            margin-left: 10px;
+        }
+
+        .secret-chat p {
+            background-color: pink;
+        }
     </style>
 </head>
 <body>
@@ -43,6 +75,9 @@
             <input type="text" id="userName" placeholder="사용자 이름 입력">
             <button>생성</button>
         </form>
+        <!-- [5] 채팅방 목록 리스트 -->
+         <h3>채팅방 목록</h3>
+         <ul id="lists"></ul>
      </div>
 
      <!-- 채팅창 화면 -->
@@ -94,6 +129,14 @@
             myName = userName;
         })
 
+        // [6] 메세지 전송
+        chatForm.addEventListener('submit', (e) => {
+            e.preventDefault();
+            const chatMessage = chatForm.querySelector('#chatMessage');
+            const user = chatForm.querySelector('#userList');
+            socket.emit('sendMessage', { message: chatMessage.value, user: myName, select: user.value})
+            chatMessage.value = '';
+        })
 
         // ------------------------
         // 소켓 이벤트
@@ -118,6 +161,48 @@
                 options += `<option value='${i.key}'>${i.userName}</option>`
             }
             lists.innerHTML = options;
+        })
+
+        // [5] 개설된 채팅방 리스트
+        socket.on('connect', () => {
+            socket.on('roomList', (res) => {
+                console.log("res >>>", res);
+                const lists = document.querySelector('#lists');
+                lists.innerHTML = ''; // 리스트 초기화
+
+                res.forEach((room) => {
+                    const li = document.createElement('li');
+                    li.textContent = `${room}`;
+                    lists.appendChild(li);
+                })
+            })
+        });
+
+        // [6] 메세지
+        socket.on('newMessage', (res) => {
+            console.log("newMessage >>>> ", res);
+            // {message: '안녕', user: '리자몽', dm: false}
+            // {message: '야', user: '리자몽', dm: true}
+
+            const div = document.createElement('div');
+            const p = document.createElement('p');
+
+            if (myName === res.user) {
+                // 내가 입력한 텍스트
+                div.classList.add('my-chat');
+            } else {
+                // 상대방이 입력한 텍스트
+                div.classList.add('other-chat');
+            }
+            // 개인 메시지 일 때
+
+            if(res.dm) {
+                div.classList.add('secret-chat');
+            }
+
+            p.textContent = `${res.user} : ${res.message}`
+            div.appendChild(p);
+            message.appendChild(div);
         })
       </script>
 </body>
