@@ -14,6 +14,7 @@ function App() {
         <FunctionComponent name="SeSAC 6기"/>
         <hr />
 
+        <Button></Button>
         <Button link="https://www.google.com">Google</Button>
     </div>
   );
