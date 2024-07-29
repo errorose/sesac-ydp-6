@@ -7,6 +7,8 @@ import React from 'react';
 // ** 이렇게도 가능하다.
 // import {Component} from 'react';
 
+import PropTypes from 'prop-types';
+
 class ClassComponent extends React.Component {
     // class ClassComponent extends Component {}
     // 클래스 인스턴스 속성, 키워드 없이 정의! (let, const, var)
@@ -32,7 +34,25 @@ class ClassComponent extends React.Component {
             </>
         )
     }
+
+    static defaultProps = {
+        name: '춘향전',
+    }
+
+    static propTypes = {
+        name: PropTypes.string,
+    }
+
 }
+
+// ClassComponent.defaultProps = {
+//     name: '기본 이름',
+// }
+
+// ClassComponent.propTypes = {
+//     name: PropTypes.string,
+// }
+
 
 export default ClassComponent;
 
