@@ -2,6 +2,7 @@ import './App.css';
 import ClassBind from './ClassBind';
 import Counter from './Counter';
 import SyntheticEvent from './SyntheticEvent';
+import EventStudy from './EventStudy';
 
 function App() {
   return (
@@ -13,6 +14,9 @@ function App() {
       <hr />
 
       <Counter />
+      <hr />
+
+      <EventStudy />
     </div>
   );
 }
