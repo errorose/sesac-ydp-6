@@ -3,11 +3,13 @@ import ClassBind from './ClassBind';
 import Counter from './Counter';
 import SyntheticEvent from './SyntheticEvent';
 import EventStudy from './EventStudy';
+import Prac2 from './Prac2';
+import Prac from './Prac';
 
 function App() {
   return (
     <div className="App">
-      <SyntheticEvent />
+      {/* <SyntheticEvent />
       <hr />
 
       <ClassBind />
@@ -17,6 +19,12 @@ function App() {
       <hr />
 
       <EventStudy />
+      <hr /> */}
+
+      <Prac2 />
+      <hr />
+
+      <Prac />
     </div>
   );
 }
