@@ -7,6 +7,7 @@ import UseReducerEx from './components/UseReducerEx';
 import useTitle from './hooks/useTitle';
 import Faq from './components/Faq';
 import Form from './components/react-hook-form/Form';
+import Prac1 from './components/react-hook-form/Prac1';
 
 function App() {
   useTitle('React Hooks 학습중!');
@@ -28,6 +29,9 @@ function App() {
       <hr /> */}
 
       <Form />
+      <hr />
+
+      <Prac1 />
     </div>
   );
 }
