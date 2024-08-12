@@ -26,10 +26,10 @@ function App() {
       <hr />
 
       <Faq />
-      <hr /> */}
+      <hr />
 
       <Form />
-      <hr />
+      <hr /> */}
 
       <Prac1 />
     </div>
