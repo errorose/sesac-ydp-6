@@ -1,0 +1,78 @@
+// 파일명 대문자
+// - 해당 파일이 특정 React 컴포넌트와 밀접하게 연관된다는 것을 나타냄.
+// - Sass 파일은 컴포넌트 단위로 작성되는 경우가 많아,
+// - 컴포넌트와 동일한 이름을 사용하여 관리하기 쉽도록 하는 것이 일반적.
+
+// SASS styling
+@import './utils';
+@import './variables';
+
+// #1. 변수 사용
+// $color-first: red;
+// $color-second: orange;
+// $color-third: yellow;
+// $animaiton-duration: 0.4s;
+// $breakpoint-sm: 360px;
+
+// #3. mixin (함수) 선언(정의)
+// @mixin box($size) {
+//     width: $size;
+//     height: $size;
+// }
+
+// #2. 중첩 - 부모 자식 표현 가능.
+.container {
+    display: flex;
+
+    .box {
+        // mixin 호출
+        @include box(150px);
+
+        // width: 100px;
+        // height: 100px;
+        // & : 부모 선택자 참조.
+        &.red {
+            background-color: red;
+        }
+
+        &.orange {
+            background-color: orange;
+        }
+
+        &.yellow {
+            background-color: yellow;
+        }
+
+        &:hover {
+            // #4. 연산
+            $box-animation: $animaiton-duration * 2;
+            transform: translateY(-20px);
+            transition: transform $box-animation;
+        }
+    }
+}
+
+.btn {
+    padding: 10px;
+    margin: 10px;
+    border: 1px solid black;
+}
+
+.btn-primary {
+    // #5. 확장 - 기존 선택자 스타일을 다른 선택자에게 상속.
+    @extend .btn;
+    // padding: 10px;
+    // margin: 10px;
+    // border: 1px solid black;
+    background-color: $color-third;
+}
+
+@media (max-width: #{$breakpoint-sm}) {
+    // @media (max-width: 360px)
+    .container {
+        flex-direction: column;
+    }
+}
+
+// 문자열 보간 방법
+// #{} 구문을 사용하여 변수의 값을 문자열 내에 삽입
