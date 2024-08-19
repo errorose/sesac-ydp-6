@@ -1,6 +1,12 @@
 // src/store/counterReducer.js
 // ** toolkit 사용하지 않는 버전. (전통 Redux 설정 방식)
 
+// #1. 액션 타입 상수 정의 (counter namespace 용 일뿐!)
+// - 코드의 가독성을 높이고, 네임스페이스를 명확하게 구분하여 이름 충돌을 방지하기 위함.
+
+const PLUS = 'counter/PLUS';
+const MINUS = 'counter/MINUS';
+
 // #2. 액션 생성자 정의
 // - 이를 통해서 컴포넌트에 액션을 쉽게 디스패치 할 수 있음.
 
@@ -12,8 +18,8 @@
  * payload / meta / error (선택 속성)
  */
 
-export const plus = () => ({type: 'counter/PLUS'}); // PLUS 액션 생성
-export const minus = () => ({type: 'counter/MINUS'}); // MINUS 액션 생성
+export const plus = () => ({type: PLUS}); // PLUS 액션 생성
+export const minus = () => ({type: MINUS}); // MINUS 액션 생성
 
 // #3. state 초기값 정의
 const initialState = {
@@ -23,9 +29,9 @@ const initialState = {
 // #4. 리듀서 정의 (상태, 액션 받음)
 const counterReducer = (state = initialState, action) => {
     switch (action.type){
-        case "counter/PLUS":
+        case PLUS:
             return {number: state.number + 1} // number 값을 1 증가.
-        case "counter/MINUS":
+        case MINUS:
             return {number: state.number - 1} // number 값을 1 감소.
         default:
             return state; // 기본 상태 반환
