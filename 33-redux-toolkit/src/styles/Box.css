@@ -1,0 +1,19 @@
+.Box {
+    border: 2px solid pink;
+    margin: 10px;
+}
+
+.Box2 {
+    border: 2px solid skyblue;
+    margin: 10px;
+}
+
+.Box3 {
+    border: 2px solid purple;
+    margin: 10px;
+}
+
+.Box4 {
+    border: 2px solid goldenrod;
+    margin: 10px;
+}
