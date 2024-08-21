@@ -121,6 +121,139 @@ val2 = 'Cat';
 console.log(val2);
 
 // ################################################
+// * Interface
+
+// #1. 객체 타입 정의
+// - interface 키워드 사용
+interface Crew {
+    name: string;
+    readonly age: number;
+    exp: boolean;
+}
+
+const crew1: Crew = {
+    name: 'Damon',
+    exp: true,
+    age: 20,
+};
+// - "Crew" 인터페이스는 세 가지 속성을 요구.
+// - crew1 객체는 이 구조를 따라야 함.
+// - 객체 안에 순서는 상관없음.
+console.log(crew1);
+
+// #2. 선택적 속성
+// - 모든 속성이 필수는 아님!
+// - '?' 붙이기
+interface Crew2 {
+    name: string;
+    age?: number; // age는 선택적 속성
+}
+
+const crew2: Crew2 = {
+    name: 'Damon',
+};
+console.log(crew2);
+// crew2 객체는 age 속성이 없어도 유효함.
+
+// #3. readOnly 읽기 전용 속성
+// - 객체가 초기화 된 후에는 변경할 수 없음.
+const crew3: Crew = {
+    name: 'John',
+    age: 22,
+    exp: true,
+};
+crew3.name = 'Son';
+// crew3.age = 30;
+console.log(crew3);
+
+// #4. 상속도 가능!
+enum Score {
+    Aplus = 'A+',
+    A = 'A',
+    B = 'B',
+    C = 'C',
+}
+
+// #5. 인터페이스 확장.
+// - 기존 인터페이스의 모든 속성 포함 및 속성 추가
+interface Team extends Crew {
+    // {name, age, exp}
+    position: string;
+    readonly personnel?: number; // 없어도 되는 값 처리.
+    [grade: number]: Score;
+
+    // ** 인덱스 시그니처
+    // - 객체가 어떤 키로든 접근할 수 있도록 허용하고, "키"와 "그에 대응하는 값"의 "타입"을 정의 할 수 있는 방법을 제공.
+    // [grade: number] - 숫자인 키(key)
+    // [grade: number]: string - 숫자 키를 가진 객체가 문자열 값을 가질 것임을 명시.
+}
+
+const first: Team = {
+    name: 'Damon',
+    age: 20,
+    exp: true,
+    position: 'FrontEnd',
+    1: Score.Aplus,
+};
+console.log(first);
+
+// 값 변경 (점 접근법, 대괄호 법)
+first.position = 'Backend';
+first['exp'] = false;
+console.log(first);
+
+// #6. 교차 타입: 두 개 이상의 interface를 합치는 것.
+interface Toy {
+    name: string;
+    start(): void;
+}
+
+interface Car {
+    name: string; // 공통된 속성을 가지고 있어도 상관없음.
+    color: string;
+    price: number;
+}
+
+interface ToyCar extends Toy, Car {} // 인터페이스 확장을 사용한 교차 타입.
+const toyCar: ToyCar = {
+    name: 'tayo',
+    start() {
+        console.log('출발! 합니다!'); // 함수도 가능
+    },
+    color: 'blue',
+    price: 5000,
+};
+console.log(toyCar);
+
+// ################################################
+// * [번외] type 사용
+type Gender = 'F' | 'M';
+type Person = {
+    name: string;
+    age?: number;
+    like?: string[];
+    gender: Gender; // 위에서 정의한 'Gender' 타입 가짐. => 'F', 'M' 둘 중 하나여야 함.
+};
+
+const IU: Person = {
+    name: 'IU',
+    age: 30,
+    gender: 'F', // Gender 타입에 선언된 값만 넣을 수 있음.
+};
+console.log(IU);
+
+
+
+
+
+
+
+
+
+
+
+
+// ################################################
 // 1. 아래와 같이 오브젝트, 불리언(boolean) 데이터 타입 순으로 설정하는 튜플 만들어보기
 let olimpic_newgame: readonly [object, boolean] = [
     {
@@ -136,4 +269,29 @@ console.log(olimpic_newgame);
 // olimpic_newgame[1] = false;
 // console.log(olimpic_newgame);
 
+// ################################################
 
+// 아래 나와 있는 heroGame_A 와 heroGame_B 를 만족할 수 있는 interface Game 만들어보기
+interface Game {
+    title: string;
+    price: number;
+    desc?: string;
+    category: string;
+    platform: string;
+}
+let heroGame_A: Game = {
+    title: 'DC 언체인드',
+    price: 50000,
+    desc: 'DC 히어로 & 빌런 각각의 개성은 물론, 액션의 재미까지!',
+    category: '액션',
+    platform: '모바일',
+}
+console.log(heroGame_A);
+
+let heroGame_B: Game = {
+    title: 'MARVEL 퓨처파이트',
+    price: 65000,
+    category: '롤플레잉',
+    platform: '모바일',
+}
+console.log(heroGame_B);
