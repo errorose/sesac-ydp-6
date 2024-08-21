@@ -133,5 +133,5 @@ let olimpic_newgame: readonly [object, boolean] = [
 console.log(olimpic_newgame);
 
 //2. olimpic_newgame[1]=false; 를 했을 때 변경되지 않도록 수정할 수 없는 데이터 만들기
-// olimpic_newgame[1] = false;
-// console.log(olimpic_newgame);
+olimpic_newgame[1] = false;
+console.log(olimpic_newgame);
