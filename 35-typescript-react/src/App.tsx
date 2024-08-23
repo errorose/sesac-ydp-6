@@ -1,4 +1,5 @@
 import Card from './components/Card';
+import PostList from './components/PostList';
 import Student from './components/Student';
 import TodoList from './components/TodoList';
 
@@ -16,6 +17,8 @@ function App() {
       </Card>
       <hr />
       <TodoList/>
+      <hr />
+      <PostList />
     </div>
   );
 }
