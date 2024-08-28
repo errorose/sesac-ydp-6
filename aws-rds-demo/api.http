@@ -1,0 +1,10 @@
+@server=http://localhost:8000
+
+### 로그인 요청
+POST {{server}}/api/users
+Content-Type: application/json; charset=UTF-8
+
+{
+    "username": "damon2", 
+    "email": "damon2235@naver.com"
+}
