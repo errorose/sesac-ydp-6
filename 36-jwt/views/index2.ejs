@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!-- Axios CDN -->
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+    <title>JWT 실습</title>
+  </head>
+  <body>
+    <h1>JWT 세션 실습</h1>
+    <div id="info">
+      <p><%= name %> 님 환영합니다!</p>
+      <button type="button" onclick="logout();">로그아웃</button>
+    </div>
+
+    <script>
+      // 로그아웃 함수
+      function logout() {
+        // 로그아웃 요청을 서버로 보낸 후, 로그인 페이지로 리다이렉트
+        document.location.href = "/logout";
+      }
+    </script>
+  </body>
+</html>
