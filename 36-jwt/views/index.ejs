@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!-- Axios CDN -->
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+    <title>JWT 실습</title>
+  </head>
+  <body>
+    <h1>JWT 로컬스토리지 실습</h1>
+    <div id="info"></div>
+
+    <script>
+      // 즉시 실행 함수 표현식 (IIFE 구조)
+      // (function () {
+      //       코드
+      // })();
+      // JS에서 함수를 정의하자마자 즉시 실행할 수 있는 패턴.
+      (async function () {
+        const token = localStorage.getItem("login");
+        const info = document.querySelector("#info");
+        let data = "";
+
+        if (!token) {
+          data = '<a href="/login">로그인 </a>';
+        } else {
+          const res = await axios({
+            method: "POST",
+            url: "/token",
+            headers: {
+              Authorization: `Bearer ${token}`,
+            },
+          });
+
+          if (res.data.result) {
+            data = `
+                <p>${res.data.name} 님 환영합니다!</p>
+                <button type="button" onclick="logout()">로그아웃</button>
+            `;
+          }
+        }
+        info.innerHTML = data;
+      })();
+
+      function logout() {
+        localStorage.clear();
+        document.location.reload();
+      }
+    </script>
+  </body>
+</html>
