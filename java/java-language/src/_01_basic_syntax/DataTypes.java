@@ -33,6 +33,5 @@ public class DataTypes {
         System.out.println("실수형 변수: " + a + ", " + c);
         System.out.println("문자형 변수: " + ch);
         System.out.println("논리형 변수: " + bool);
-
     }
 }
