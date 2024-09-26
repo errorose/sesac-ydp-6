@@ -10,5 +10,7 @@ public class ArrayListExam {
         List<String> list = new ArrayList<>();
         Scanner scanner = new Scanner(System.in);
 
+        System.out.println("문자를 입력해주세요!");
+
     }
 }
