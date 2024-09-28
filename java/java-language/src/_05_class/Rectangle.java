@@ -12,7 +12,7 @@ public class Rectangle {
     }
 
     // 메소드
-    public int rectangleArea(int width, int height){
+    public int area(){
         return this.width * this.height;
     }
 
