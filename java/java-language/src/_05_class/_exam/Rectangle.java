@@ -1,4 +1,4 @@
-package _05_class;
+package _05_class._exam;
 
 public class Rectangle {
     // 필드

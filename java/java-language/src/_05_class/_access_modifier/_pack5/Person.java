@@ -16,7 +16,7 @@ public class Person {
         // age 필드는 음수가 될 수 없도록 설정
         if(age < 0){
             this.age = 0;
-            return;
+            return; // 함수 끝냄.
         }else{
             this.age = age;
         }
