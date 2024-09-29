@@ -1,4 +1,4 @@
-package _03_array;
+package _03_array._exam;
 
 import java.util.Scanner;
 
