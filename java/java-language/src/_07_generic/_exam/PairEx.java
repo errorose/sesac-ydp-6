@@ -19,8 +19,8 @@ class Pair<K, V> {
 
 public class PairEx {
     public static void main(String[] args) {
-        Pair pair1 = new Pair("One", 1);
-        Pair pair2 = new Pair<>(2, "Two");
+        Pair<String, Integer> pair1 = new Pair<>("One", 1);
+        Pair<Integer, String> pair2 = new Pair<>(2, "Two");
 
         System.out.println("Key: " + pair1.getKey() + ", Value: " + pair1.getValue());
         System.out.println("Key: " + pair2.getKey() + ", Value: " + pair2.getValue());
