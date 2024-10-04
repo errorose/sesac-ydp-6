@@ -1,0 +1,16 @@
+<!doctype html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Thymeleaf 실습</title>
+</head>
+<body>
+    <h3>1. Controller에서 age를 보냈을 때 20세보다 적으면 미성년자 출력</h3>
+    <h3>2. Age가 20보다 크다면 성인 출력</h3>
+    <p th:if="${age}<20" th:text="${age} + '세는 미성년자 입니다.'"></p>
+    <p th:unless="${age}<20" th:text="${age} + '세는 성인 입니다.'"></p>
+</body>
+</html>
