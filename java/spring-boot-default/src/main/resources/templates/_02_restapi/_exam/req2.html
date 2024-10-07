@@ -1,0 +1,35 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <!-- axios -->
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+    <!-- css -->
+    <link rel="stylesheet" href="/css/req.css" />
+    <!-- js -->
+    <script src="/js/_exam/req.js" defer></script>
+    <title>POST 실습</title>
+</head>
+<body>
+<div class="box">
+    <div id="vo-result-container" class="result-container"></div>
+    <div class="forms-container">
+        <form id="form_vo1" class="form-card">
+        이름 <input type="text" name="name"> <br>
+        성별
+        <input type="radio" name="gender" value="남자"> 남자
+        <input type="radio" name="gender" value="여자"> 여자 <br>
+        생년월일 <input type="date" name="birth"> <br>
+        관심사
+        <input type="checkbox" name="like" value="여행"> 여행
+        <input type="checkbox" name="like" value="패션"> 패션
+        <input type="checkbox" name="like" value="음식"> 음식 <br>
+        <button type="button" onclick="voRes1();">회원가입</button>
+        </form>
+    </div>
+</div>
+</body>
+</html>
