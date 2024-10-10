@@ -1,0 +1,54 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <!-- axios -->
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+    <!-- js -->
+    <script src="/js/_exam/crud_req.js" defer></script>
+    <title>CRUD</title>
+</head>
+<body>
+    <form action="/register" method="post"  id="form_register">
+        <h3>회원가입</h3>
+        <input type="text" name="userId" placeholder="아이디"> <br>
+        <input type="password" name="userPw" placeholder="비밀번호"> <br>
+        <input type="text" name="userName" placeholder="이름"> <br>
+        <button type="button" onclick="postRegister();">가입하기</button>
+    </form>
+    <br>
+    <div id="registerMsg"></div>
+    <hr>
+
+    <form action="/login" method="post" id="form_login">
+        <h3>로그인</h3>
+        <input type="text" name="userId" placeholder="아이디"> <br>
+        <input type="text" name="userPw" placeholder="비밀번호"> <br>
+        <button type="button" onclick="postLogin();">로그인</button>
+    </form>
+    <br>
+    <div id="loginMsg"></div>
+    <hr>
+
+    <form action="/patch" method="patch" id="form_patch">
+        <h3>회원정보 수정</h3>
+        <input type="text" name="userId" placeholder="아이디"> <br>
+        <input type="text" name="userName" placeholder="새 이름"> <br>
+        <button type="button" onclick="patchUser();">수정하기</button>
+    </form>
+    <br>
+    <div id="patchMsg"></div>
+    <hr>
+
+    <form action="/delete" method="delete" id="form_delete">
+        <h3>회원정보 삭제</h3>
+        <input type="text" name="userId" placeholder="아이디"> <br>
+        <button type="button" onclick="deleteUser();">삭제하기</button>
+    </form>
+    <br>
+    <div id="deleteMsg"></div>
+</body>
+</html>
