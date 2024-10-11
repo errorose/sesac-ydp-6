@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- ㄴ XML 문서의 버전과 인코딩 선언 -->
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<!-- ㄴ MyBatis 매퍼 DTD(Document Type Definition) 지정 -->
+<mapper namespace="codingon.spring_boot_mybatis.mapper.UserMapper">
+    <!-- ㄴ 매퍼 네임 스페이스 정의 (UserMapper 인터페이의 전체 경로 지정) -->
+
+    <!--  select 태그
+        - id: UserMapper 인터페이스에 메서드 이름과 일치 (해당 값으로 쿼리를 식별 호출)
+        - resultType: 쿼리에 전달되는 매핑할 객체의 타입 지정
+        - parameterType: 쿼리에 전달되는 파라미터 타입 지정 가능 (ex. long, String, 특정 클래스명 등)
+     -->
+
+    <!-- XML 기반의 MyBatis 매퍼 사용 -->
+    <select id="findAll" resultType="codingon.spring_boot_mybatis.domain.User">
+        SELECT * FROM users
+    </select>
+
+</mapper>
