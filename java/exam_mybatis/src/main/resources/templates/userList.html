@@ -29,7 +29,7 @@
         axios.get('/api/users')
             .then(function (response) {
                 const users = response.data;
-                console.log(users);
+                console.log('users: ', users);
                 const tbody = document.querySelector('#userTable tbody');
                 tbody.innerHTML = '';
                 users.forEach(function(user) {

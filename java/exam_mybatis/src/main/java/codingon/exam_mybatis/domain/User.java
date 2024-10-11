@@ -11,3 +11,7 @@ public class User {
     private String email;
     private String createdAt;
 }
+
+// domain.User 클래스
+// - 데이터베이스 엔티티를 표현하는 도메인
+// - 실제 데이터의 역할이므로 "테이블 구조"와 동일해야 함
