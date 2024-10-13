@@ -7,15 +7,15 @@ import org.springframework.web.bind.annotation.GetMapping;
 @Controller
 public class ViewController {
 
-    // GET / 요청시 /users 경로로 리다이렉트
+    // GET / 요청시 /boards 경로로 리다이렉트
     @GetMapping("/")
-    public String redirectToUsers() {
-        return "redirect:/users";
+    public String redirectBoards() {
+        return "redirect:/boards";
     }
 
-    // GET /users 요청시 userList.html 템플릿 뷰 반환
-    @GetMapping("/users")
-    public String listUsers() {
-        return "userList";
+    // GET /boards 요청시 boardList.html 템플릿 뷰 반환
+    @GetMapping("/boards")
+    public String listBoards() {
+        return "boardList";
     }
 }

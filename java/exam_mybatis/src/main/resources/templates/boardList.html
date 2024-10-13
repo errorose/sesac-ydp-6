@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Board List</title>
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+    <link rel="stylesheet" href="/user.css">
+</head>
+<body>
+<h1>Board List</h1>
+
+<!-- 작성자 검색 입력 필드 -->
+<input type="text" id="writerSearch" placeholder="작성자 이름 입력">
+<button class="btn" onclick="searchByWriter()">검색</button>
+<br><br>
+
+<a href="/users/new" class="btn">게시글 등록</a>
+<table id="userTable">
+    <thead>
+    <tr>
+        <th>No</th>
+        <th>Title</th>
+        <th>Content</th>
+        <th>Writer</th>
+        <th>Actions</th>
+    </tr>
+    </thead>
+    <tbody>
+    </tbody>
+</table>
+<script>
+    document.addEventListener('DOMContentLoaded', function() {
+        fetchUsers();
+    });
+
+    // 전체 게시글을 불러오는 함수
+    function fetchUsers() {
+        axios.get('/api/boards')
+            .then(function (response) {
+                const boards = response.data;
+                console.log('전체조회: ', boards);
+                renderTable(boards);
+            })
+            .catch(function (error) {
+                console.error('Error:', error);
+            });
+    }
+
+    // 작성자 이름으로 검색하는 함수
+    function searchByWriter() {
+        const writer = document.getElementById('writerSearch').value.trim();
+        if (writer === '') {
+            alert('작성자 이름을 입력하세요.');
+            return;
+        }
+
+    // 서버로 작성자 이름을 전달하여 검색
+    axios.get(`/api/boards`, { params: { writer } })
+        .then((response) => {
+            const boards = response.data;
+            console.log('작성자로 검색: ', boards);
+            renderTable(boards); // 받은 결과로 테이블 렌더링
+        })
+        .catch((error) => {
+            console.error('Error fetching boards:', error);
+        });
+}
+
+    // 테이블에 데이터를 렌더링하는 함수
+    function renderTable(boards) {
+        const tbody = document.querySelector('#userTable tbody');
+        tbody.innerHTML = '';
+        boards.forEach(function(board) {
+            const row = `
+                <tr>
+                    <td>${board.no}</td>
+                    <td>${board.title}</td>
+                    <td>${board.content}</td>
+                    <td>${board.writer}</td>
+                    <td class="action-buttons">
+                        <a href="/users/${board.id}/edit" class="btn">수정</a>
+                        <button onclick="deleteUser(${board.id})" class="btn btn-danger">삭제</button>
+                    </td>
+                </tr>
+            `;
+            tbody.innerHTML += row;
+        });
+    }
+
+    // 게시글 삭제 함수
+    function deleteUser(id) {
+        if (confirm('정말로 삭제하시겠습니까?')) {
+            axios.delete('/api/users/' + id)
+                .then(function (response) {
+                    fetchUsers();
+                })
+                .catch(function (error) {
+                    console.error('Error:', error);
+                });
+        }
+    }
+
+</script>
+</body>
+</html>
