@@ -24,4 +24,35 @@
             </if>
         </where>
     </select>
+
+    <select id="findById" parameterType="int" resultType="codingon.exam_mybatis.domain.Board">
+        SELECT * FROM board where id = #{id}
+    </select>
+
+    <!-- insert 태그 속성 정리
+        - id: UserMapper 인터페이스의 메서드 이름 일치
+        - parameterType: 삽입할 객체의 타입 지정
+        - useGeneratedKeys: DB 에서 자동생성된 키를 사용할지 여부를 지정 (true: 자동 생성된 키를 가져옴)
+        - keyProperty: 자동 생성된 키 값을 저장할 파라미터 객체의 속성명 지정
+    -->
+    <insert id="insert" parameterType="codingon.exam_mybatis.domain.Board"
+            useGeneratedKeys="true" keyProperty="id">
+        INSERT INTO board (title, content, writer) VALUES (#{title}, #{content}, #{writer})
+    </insert>
+
+    <!-- update 태그 속성 정리
+        - id: UserMapper 인터페이스의 메서드 이름 일치
+        - parameterType: 삽입할 객체의 타입 지정
+    -->
+    <update id="update" parameterType="codingon.exam_mybatis.domain.Board">
+        UPDATE board SET writer = #{writer}, title = #{title}, content = #{content} WHERE id = #{id}
+    </update>
+
+    <!-- delete 태그 속성 정리
+        - id: UserMapper 인터페이스의 메서드 이름 일치
+        - parameterType: 삭제할 조건(where 절)에 사용될 파라미터 타입 지정
+    -->
+    <delete id="delete" parameterType="int">
+        DELETE FROM board WHERE id = #{id}
+    </delete>
 </mapper>

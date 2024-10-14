@@ -18,4 +18,8 @@ public interface BoardMapper {
 
     List<Board> findAll(); // 모든 게시글 조회
     List<Board> findByWriter(@Param("writer") String writer); // 작성자로 게시글 조회
+    void insert(Board board); // 게시글 등록
+    Board findById(int id); // 수정시 게시글 정보 조회
+    void update(Board board); // 게시글 수정
+    void delete(int id); // 게시글 삭제
 }

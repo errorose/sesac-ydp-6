@@ -51,6 +51,38 @@ public class BoardService {
         return boardDTOS;
     }
 
+    // 특정 ID 의 게시글 정보를 BoardDTO 로 반환 (수정시 게시글 정보 조회)
+    public BoardDTO getBoardById(int id) {
+        Board board = boardMapper.findById(id);
+        return convertToDto(board);
+    }
+
+    // 새 게시글 생성
+    public void createBoard(BoardDTO boardDTO) {
+        Board board = convertToEntity(boardDTO);
+        boardMapper.insert(board);
+    }
+
+    // 게시글 정보 업데이트
+    public void updateBoard(BoardDTO boardDTO) {
+        Board board = convertToEntity(boardDTO);
+        boardMapper.update(board);
+    }
+
+    // 특정 ID 의 게시글 삭제
+    public void deleteBoard(int id) { boardMapper.delete(id); }
+
+    // dto to domain
+    private Board convertToEntity(BoardDTO dto) {
+        Board board = new Board();
+        board.setId(dto.getId());
+        board.setWriter(dto.getWriter());
+        board.setTitle(dto.getTitle());
+        board.setContent(dto.getContent());
+
+        return board;
+    }
+
     // domain to dto
     private BoardDTO convertToDto(Board board) {
         BoardDTO dto = new BoardDTO();

@@ -28,4 +28,26 @@ public class BoardController {
         }
     }
 
+    // 특정 ID 의 게시글 정보 반환
+    @GetMapping("/{id}")
+    public BoardDTO getBoard(@PathVariable int id) { return boardService.getBoardById(id); }
+
+    // 새 게시글 생성하고 생성된 게시글 정보 반환
+    @PostMapping
+    public BoardDTO createBoard(@RequestBody BoardDTO boardDTO) {
+        boardService.createBoard(boardDTO);
+        return boardDTO;
+    }
+
+    // 특정 ID 의 게시글 정보를 업데이트하고 업데이트된 정보를 반환
+    @PutMapping("/{id}")
+    public BoardDTO updateBoard(@PathVariable int id, @RequestBody BoardDTO boardDTO) {
+        boardDTO.setId(id);
+        boardService.updateBoard(boardDTO);
+        return boardDTO;
+    }
+
+    // 특정 ID 의 게시글 삭제
+    @DeleteMapping("/{id}")
+    public void deleteBoard(@PathVariable int id) { boardService.deleteBoard(id); }
 }

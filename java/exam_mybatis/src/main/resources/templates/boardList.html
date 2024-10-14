@@ -13,7 +13,7 @@
 <button class="btn" onclick="searchByWriter()">검색</button>
 <br><br>
 
-<a href="/users/new" class="btn">게시글 등록</a>
+<a href="/boards/new" class="btn">게시글 등록</a>
 <table id="userTable">
     <thead>
     <tr>
@@ -77,8 +77,8 @@
                     <td>${board.content}</td>
                     <td>${board.writer}</td>
                     <td class="action-buttons">
-                        <a href="/users/${board.id}/edit" class="btn">수정</a>
-                        <button onclick="deleteUser(${board.id})" class="btn btn-danger">삭제</button>
+                        <a href="/boards/${board.id}/edit" class="btn">수정</a>
+                        <button onclick="deleteBoard(${board.id})" class="btn btn-danger">삭제</button>
                     </td>
                 </tr>
             `;
@@ -87,9 +87,9 @@
     }
 
     // 게시글 삭제 함수
-    function deleteUser(id) {
+    function deleteBoard(id) {
         if (confirm('정말로 삭제하시겠습니까?')) {
-            axios.delete('/api/users/' + id)
+            axios.delete('/api/boards/' + id)
                 .then(function (response) {
                     fetchUsers();
                 })
