@@ -25,7 +25,7 @@
         </where>
     </select>
 
-    <select id="findById" parameterType="int" resultType="codingon.exam_mybatis.domain.Board">
+    <select id="findById" parameterType="long" resultType="codingon.exam_mybatis.domain.Board">
         SELECT * FROM board where id = #{id}
     </select>
 
@@ -52,7 +52,7 @@
         - id: UserMapper 인터페이스의 메서드 이름 일치
         - parameterType: 삭제할 조건(where 절)에 사용될 파라미터 타입 지정
     -->
-    <delete id="delete" parameterType="int">
+    <delete id="delete" parameterType="long">
         DELETE FROM board WHERE id = #{id}
     </delete>
 </mapper>

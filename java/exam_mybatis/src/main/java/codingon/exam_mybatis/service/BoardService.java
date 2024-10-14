@@ -52,7 +52,7 @@ public class BoardService {
     }
 
     // 특정 ID 의 게시글 정보를 BoardDTO 로 반환 (수정시 게시글 정보 조회)
-    public BoardDTO getBoardById(int id) {
+    public BoardDTO getBoardById(Long id) {
         Board board = boardMapper.findById(id);
         return convertToDto(board);
     }
@@ -70,7 +70,7 @@ public class BoardService {
     }
 
     // 특정 ID 의 게시글 삭제
-    public void deleteBoard(int id) { boardMapper.delete(id); }
+    public void deleteBoard(Long id) { boardMapper.delete(id); }
 
     // dto to domain
     private Board convertToEntity(BoardDTO dto) {

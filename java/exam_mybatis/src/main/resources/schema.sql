@@ -3,7 +3,7 @@ create database exam default character set utf8 default collate utf8_general_ci;
 
  -- board 테이블 생성
  CREATE TABLE board (
- 	id INT AUTO_INCREMENT PRIMARY KEY,
+ 	id BIGINT AUTO_INCREMENT PRIMARY KEY,
      title VARCHAR(20) NOT NULL,
      content VARCHAR(100) NOT NULL,
      writer VARCHAR(10) NOT NULL,
