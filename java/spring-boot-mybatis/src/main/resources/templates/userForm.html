@@ -25,6 +25,8 @@
     document.addEventListener('DOMContentLoaded', function() {
         const pathParts = window.location.pathname.split('/');
         const lastPart = pathParts[pathParts.length - 1];
+        console.log('pathParts', pathParts);
+        console.log('lastPart', lastPart);
 
         if (lastPart === 'edit') {
             userId = pathParts[pathParts.length - 2];

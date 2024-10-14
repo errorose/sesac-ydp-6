@@ -33,6 +33,39 @@ public class UserService {
         return userDTOs;
     }
 
+    // 특정 ID 의 사용자 정보를 UserDTO 로 반환 (수정시 사용자 정보 조회)
+    public UserDTO getUserById(Long id) {
+        User user = userMapper.findById(id);
+        return convertToDto(user);
+    }
+
+    // 새 사용자 생성
+    public void createUser(UserDTO userDTO) {
+        User user = convertToEntity(userDTO);
+        userMapper.insert(user);
+    }
+
+    // 사용자 정보 업데이트
+    public void updateUser(UserDTO userDTO) {
+        User user = convertToEntity(userDTO);
+        userMapper.update(user);
+    }
+
+    // 특정 ID 의 사용자 삭제
+    public void deleteUser(Long id) {
+        userMapper.delete(id);
+    }
+
+    // dto to domain (userDTO 를 User 객체로 변환)
+    private User convertToEntity(UserDTO dto) {
+        User user = new User();
+        user.setId(dto.getId());
+        user.setUsername(dto.getUsername());
+        user.setEmail(dto.getEmail());
+
+        return user;
+    }
+
     // domain to dto
     private UserDTO convertToDto(User user) {
         UserDTO dto = new UserDTO();
@@ -44,3 +77,10 @@ public class UserService {
         return dto;
     }
 }
+
+// 참고. domain.User 와 dto.UserDTO 를 서로 변환하는 이유
+// - domain.User 는 데이터베이스 엔티티를 표현 (영속성 계층과 연관)
+// - dto.UserDTO 는 클라이언트와 데이터 전송에 사용 (표현 계층과 연관)
+//  DTO 를 사용 시 클라이언트의 요구사항에 맞춰서 데이터 구조를 쉽게 변경
+//  필요한 데이터만 클라이언트에 전송하여 네트워크 부하를 줄일 수 있음
+//  API 버전 관리 용이 (엔티티(도메인) 변경 시 DTO 를 통해 이전 버전과의 호환성 유지 가능)

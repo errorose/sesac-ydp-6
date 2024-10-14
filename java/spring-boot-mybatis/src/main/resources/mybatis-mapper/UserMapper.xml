@@ -5,15 +5,46 @@
 <mapper namespace="codingon.spring_boot_mybatis.mapper.UserMapper">
     <!-- ㄴ 매퍼 네임 스페이스 정의 (UserMapper 인터페이의 전체 경로 지정) -->
 
+    <!-- XML 기반의 MyBatis 매퍼 사용 -->
+
     <!--  select 태그
         - id: UserMapper 인터페이스에 메서드 이름과 일치 (해당 값으로 쿼리를 식별 호출)
         - resultType: 쿼리에 전달되는 매핑할 객체의 타입 지정
         - parameterType: 쿼리에 전달되는 파라미터 타입 지정 가능 (ex. long, String, 특정 클래스명 등)
      -->
-
-    <!-- XML 기반의 MyBatis 매퍼 사용 -->
     <select id="findAll" resultType="codingon.spring_boot_mybatis.domain.User">
         SELECT * FROM users
     </select>
+
+    <select id="findById" parameterType="long" resultType="codingon.spring_boot_mybatis.domain.User">
+        SELECT * FROM users WHERE id = #{id}
+    </select>
+
+    <!-- insert 태그 속성 정리
+        - id: UserMapper 인터페이스의 메서드 이름 일치
+        - parameterType: 삽입할 객체의 타입 지정
+        - useGeneratedKeys: DB 에서 자동생성된 키를 사용할지 여부를 지정 (true: 자동 생성된 키를 가져옴)
+        - keyProperty: 자동 생성된 키 값을 저장할 파라미터 객체의 속성명 지정
+    -->
+    <insert id="insert" parameterType="codingon.spring_boot_mybatis.domain.User"
+            useGeneratedKeys="true" keyProperty="id">
+        INSERT INTO users (username, email) VALUES (#{username}, #{email})
+    </insert>
+
+    <!-- update 태그 속성 정리
+        - id: UserMapper 인터페이스의 메서드 이름 일치
+        - parameterType: 삽입할 객체의 타입 지정
+    -->
+    <update id="update" parameterType="codingon.spring_boot_mybatis.domain.User">
+        UPDATE users SET username = #{username}, email = #{email} WHERE id = #{id}
+    </update>
+
+    <!-- delete 태그 속성 정리
+        - id: UserMapper 인터페이스의 메서드 이름 일치
+        - parameterType: 삭제할 조건(where 절)에 사용될 파라미터 타입 지정
+    -->
+    <delete id="delete" parameterType="long">
+        DELETE FROM users WHERE id = #{id}
+    </delete>
 
 </mapper>

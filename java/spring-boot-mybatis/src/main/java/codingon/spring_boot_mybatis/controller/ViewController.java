@@ -18,4 +18,16 @@ public class ViewController {
     public String listUsers() {
         return "userList";
     }
+
+    // GET /users/new 요청시 userForm.html 템플릿 뷰 반환 ("새 유저 생성")
+    @GetMapping("/users/new")
+    public String newUserForm() {
+        return "userForm";
+    }
+
+    // GET /users/{id}/new 요청시 userForm.html 템플릿 뷰 반환 ("기존 유저 정보 수정")
+    @GetMapping("/users/{id}/edit")
+    public String editUserForm() {
+        return "userForm";
+    }
 }
