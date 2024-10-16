@@ -1,3 +1,4 @@
+
 package codingon.exam_jpa.service;
 
 import codingon.exam_jpa.dto.BoardDTO;
@@ -42,6 +43,45 @@ public class BoardService {
         return convertToDTO(board);
     }
 
+    // 새 게시글 생성
+    public void createBoard(BoardDTO boardDTO) {
+        Board board = convertToEntity(boardDTO);
+        boardRepository.save(board);
+    }
+
+    // 게시글 정보 업데이트
+    public void updateBoard(Long id, BoardDTO boardDTO) {
+        Board board = convertToEntityWithId(id, boardDTO);
+        boardRepository.save(board);
+    }
+
+    // 특정 ID 의 게시글 삭제
+    public void deleteBoard(Long id) {
+        boardRepository.deleteById(id);
+    }
+
+    /////////////////////////////////////////////////////////////////////
+    // 1. 작성자 이름으로 n 명 조회
+    public List<BoardDTO> getBoardByWriter(String writer) {
+        List<Board> boards = boardRepository.findByWriter(writer);
+        List<BoardDTO> boardDTOS = new ArrayList<>();
+        for (Board board : boards) {
+            boardDTOS.add(convertToDTO(board));
+        }
+
+        return boardDTOS;
+    }
+
+    // dto to entity(domain)
+    private Board convertToEntity(BoardDTO dto) {
+        return Board.builder()
+                .id(dto.getId())
+                .writer(dto.getWriter())
+                .title(dto.getTitle())
+                .content(dto.getContent())
+                .build();
+    }
+
     // entity(domain) to dto
     private BoardDTO convertToDTO(Board board) {
         // builder 패턴을 이용해 dto 객체 생성
@@ -51,6 +91,16 @@ public class BoardService {
                 .title(board.getTitle())
                 .content(board.getContent())
                 .writer(board.getWriter())
+                .build();
+    }
+
+    // dto to entity(domain) with id
+    private Board convertToEntityWithId(Long id, BoardDTO dto) {
+        return Board.builder()
+                .id(id)
+                .writer(dto.getWriter())
+                .title(dto.getTitle())
+                .content(dto.getContent())
                 .build();
     }
 }
