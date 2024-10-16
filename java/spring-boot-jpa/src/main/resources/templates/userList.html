@@ -10,6 +10,10 @@
 <div class="btn-container">
     <a href="/users/new" class="btn btn-new">유저 등록</a>
     <div class="search-section">
+        <input type="text" id="usernameSearchListInput" placeholder="유저명으로 검색해보세요">
+        <button onclick="searchUsersList()" class="btn">검색</button>
+    </div>
+    <div class="search-section">
         <input type="text" id="searchInput" placeholder="유저명 혹은 이메일로 검색해보세요">
         <button onclick="searchUsers()" class="btn">검색</button>
     </div>
@@ -49,6 +53,18 @@
             .catch(function (error) {
                 console.error('Error:', error);
             });
+    }
+
+    function searchUsersList() {
+        const username = document.getElementById('usernameSearchListInput').value;
+        axios.get(`/api/users/byUsername?username=${username}`)
+            .then((response) => {
+                const users = response.data;
+                updateUserTable(users);
+            })
+            .catch((error) => {
+                console.error('Error:', error);
+            })
     }
 
     function searchUsers() {
