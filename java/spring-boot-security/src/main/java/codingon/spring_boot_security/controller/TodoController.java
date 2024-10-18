@@ -6,10 +6,7 @@ import codingon.spring_boot_security.entity.TodoEntity;
 import codingon.spring_boot_security.service.TodoService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -65,6 +62,28 @@ public class TodoController {
 
             return ResponseEntity.badRequest().body(response);
         }
+    }
+
+    @GetMapping
+    public ResponseEntity<?> retrieveTodoList() {
+        // 임시 유저 하드코딩
+        String temporaryUserId = "temporary-user";
+
+        // (1) 서비스 계층의 retrieve() 메서드를 사용하여 "해당 유저의 투두 목록"을 가져오기
+        List<TodoEntity> entities = service.retrieve(temporaryUserId);
+
+        // (2) 리턴된 엔티티 리스트를 todoDTO 리스트로 변환
+        List<TodoDTO> dtos = new ArrayList<>();
+        for (TodoEntity tEntity: entities) {
+            TodoDTO tDTO = new TodoDTO(tEntity);
+            dtos.add(tDTO);
+        }
+
+        // (3) 변환된 TodoDTO 리스트를 이용해 ResponseDTO 를 초기화
+        ResponseDTO<TodoDTO> response = ResponseDTO.<TodoDTO>builder().data(dtos).build();
+
+        // (4) ResponseDTO 리턴
+        return ResponseEntity.ok().body(response);
     }
 
 }
