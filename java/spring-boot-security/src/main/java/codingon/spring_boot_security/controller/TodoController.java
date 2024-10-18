@@ -6,6 +6,7 @@ import codingon.spring_boot_security.entity.TodoEntity;
 import codingon.spring_boot_security.service.TodoService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
+import org.springframework.security.core.annotation.AuthenticationPrincipal;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.ArrayList;
@@ -26,10 +27,14 @@ public class TodoController {
     // - body(): 응답 본문 설정
 
     @PostMapping
-    public ResponseEntity<?> createTodo(@RequestBody TodoDTO dto) {
+    public ResponseEntity<?> createTodo(@AuthenticationPrincipal String userId, @RequestBody TodoDTO dto) {
+        // @AuthenticationPrincipal
+        // - 현재 인증된 사용자 정보에 접근할 수 있게 함
+        // - Spring security 는 security context 에서 현재 인증된 사용자의 principal 을 가져옴
+        // 우리 코드) jwtAuthenticationFilter 클래스에서 userId 를 바탕으로 인증 객체 생성했음
         try {
             // 임시 유저 하드코딩
-            String temporaryUserId = "temporary-user";
+//            String temporaryUserId = "temporary-user";
 
             // (1) dto to entity
             TodoEntity entity = TodoDTO.toEntity(dto);
@@ -38,7 +43,8 @@ public class TodoController {
             entity.setId(null);
 
             // (3) 임시 유저 아이디 설정
-            entity.setUserId(temporaryUserId);
+//            entity.setUserId(temporaryUserId);
+            entity.setUserId(userId);
 
             // (4) 서비스 계층을 이용해 todo 엔티티 생성
             List<TodoEntity> entities = service.create(entity);
@@ -64,13 +70,14 @@ public class TodoController {
         }
     }
 
+
     @GetMapping
-    public ResponseEntity<?> retrieveTodoList() {
+    public ResponseEntity<?> retrieveTodoList(@AuthenticationPrincipal String userId) {
         // 임시 유저 하드코딩
-        String temporaryUserId = "temporary-user";
+//        String temporaryUserId = "temporary-user";
 
         // (1) 서비스 계층의 retrieve() 메서드를 사용하여 "해당 유저의 투두 목록"을 가져오기
-        List<TodoEntity> entities = service.retrieve(temporaryUserId);
+        List<TodoEntity> entities = service.retrieve(userId);
 
         // (2) 리턴된 엔티티 리스트를 todoDTO 리스트로 변환
         List<TodoDTO> dtos = new ArrayList<>();
@@ -85,5 +92,4 @@ public class TodoController {
         // (4) ResponseDTO 리턴
         return ResponseEntity.ok().body(response);
     }
-
 }
